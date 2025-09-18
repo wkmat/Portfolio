@@ -25,17 +25,20 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin-top: 15px;
     }
+    /* Flex row for videos */
     .video-row {
       display: flex;
       flex-wrap: wrap;
       gap: 20px; /* space between videos */
     }
-    .video-row video {
-      flex: 1 1 45%; /* each video takes up ~45% of the row */
-      max-width: 100%;
+    .video-container {
+      flex: 1 1 45%; /* each container takes equal width */
+    }
+    .video-container video {
+      width: 100%; /* video fills its container */
     }
     @media (max-width: 700px) {
-      .video-row video {
+      .video-container {
         flex: 1 1 100%; /* stack videos on small screens */
       }
     }
@@ -47,7 +50,7 @@
   <!-- First Project -->
   <div class="project">
     <h2>Impeller Turbine Assembly</h2>
-    <video width="640" controls>
+    <video controls>
       <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -56,11 +59,11 @@
   <!-- Second Project: PC Case -->
   <div class="project">
     <h2>PC Case Design</h2>
-    <p>Full PC case assembly.</p>
+    <p>Full PC case assembly and 3D print simulation.</p>
     
     <div class="video-row">
       <!-- Video 1: Assembly -->
-      <div>
+      <div class="video-container">
         <h3>Assembly</h3>
         <video controls>
           <source src="PC_Case.mp4" type="video/mp4">
@@ -69,7 +72,7 @@
       </div>
 
       <!-- Video 2: 3D Print -->
-      <div>
+      <div class="video-container">
         <h3>3D Print</h3>
         <video controls>
           <source src="PC_Case_Print.mp4" type="video/mp4">
