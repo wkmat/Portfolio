@@ -24,6 +24,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin-top: 15px;
     }
+
     /* Flex row for videos */
     .video-row {
       display: flex;
@@ -36,6 +37,7 @@
     .video-container video {
       width: 100%;
     }
+
     /* Grid for multiple images */
     .image-grid {
       display: flex;
@@ -43,12 +45,13 @@
       gap: 20px;
     }
     .image-grid img {
-      flex: 1 1 calc(20% - 16px); /* 5 images per row */
+      flex: 1 1 calc(30% - 20px); /* medium size: ~3 per row */
       max-width: 100%;
     }
-    @media (max-width: 1000px) {
+
+    @media (max-width: 900px) {
       .image-grid img {
-        flex: 1 1 calc(33% - 16px); /* 3 per row on smaller screens */
+        flex: 1 1 calc(45% - 20px); /* 2 per row on smaller screens */
       }
     }
     @media (max-width: 600px) {
@@ -65,11 +68,11 @@
   <div class="project">
     <h2>Motor to Pump Assembly</h2>
     <div class="image-grid">
-      <img src="GearBox1.png">
-      <img src="GearBox2.png">
-      <img src="GearBox3.png">
-      <img src="GearBox4.png">
-      <img src="GearBox5.png">
+      <img src="GearBox1.png" alt="Motor to Pump Assembly 1">
+      <img src="GearBox2.png" alt="Motor to Pump Assembly 2">
+      <img src="GearBox3.png" alt="Motor to Pump Assembly 3">
+      <img src="GearBox4.png" alt="Motor to Pump Assembly 4">
+      <img src="GearBox5.png" alt="Motor to Pump Assembly 5">
     </div>
   </div>
 
