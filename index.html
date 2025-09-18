@@ -25,6 +25,20 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin-top: 15px;
     }
+    .video-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px; /* space between videos */
+    }
+    .video-row video {
+      flex: 1 1 45%; /* each video takes up ~45% of the row */
+      max-width: 100%;
+    }
+    @media (max-width: 700px) {
+      .video-row video {
+        flex: 1 1 100%; /* stack videos on small screens */
+      }
+    }
   </style>
 </head>
 <body>
@@ -44,19 +58,25 @@
     <h2>PC Case Design</h2>
     <p>Full PC case assembly.</p>
     
-    <!-- Video 1: Assembly -->
-    <h3>Assembly</h3>
-    <video width="640" controls>
-      <source src="PC_Case.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-row">
+      <!-- Video 1: Assembly -->
+      <div>
+        <h3>Assembly</h3>
+        <video controls>
+          <source src="PC_Case.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-    <!-- Video 2: Cooling Simulation -->
-    <h3>3D Print</h3>
-    <video width="640" controls>
-      <source src="PC_Case_Print.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+      <!-- Video 2: 3D Print -->
+      <div>
+        <h3>3D Print</h3>
+        <video controls>
+          <source src="PC_Case_Print.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
   </div>
 </body>
 </html>
