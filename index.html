@@ -24,7 +24,6 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin-top: 15px;
     }
-
     /* Flex row for videos */
     .video-row {
       display: flex;
@@ -37,26 +36,21 @@
     .video-container video {
       width: 100%;
     }
-
-    /* Grid for multiple images */
+    /* Grid for multiple images (same size as videos) */
     .image-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
     .image-grid img {
-      flex: 1 1 calc(30% - 20px); /* medium size: ~3 per row */
-      max-width: 100%;
+      flex: 1 1 45%; /* same size as video-container */
+      max-width: 45%;
+      height: auto;
     }
-
-    @media (max-width: 900px) {
-      .image-grid img {
-        flex: 1 1 calc(45% - 20px); /* 2 per row on smaller screens */
-      }
-    }
-    @media (max-width: 600px) {
-      .image-grid img {
-        flex: 1 1 100%; /* 1 per row on mobile */
+    @media (max-width: 800px) {
+      .image-grid img, .video-container {
+        flex: 1 1 100%; /* stack on smaller screens */
+        max-width: 100%;
       }
     }
   </style>
@@ -68,11 +62,11 @@
   <div class="project">
     <h2>Motor to Pump Assembly</h2>
     <div class="image-grid">
-      <img src="GearBox1.png" alt="Motor to Pump Assembly 1">
-      <img src="GearBox2.png" alt="Motor to Pump Assembly 2">
-      <img src="GearBox3.png" alt="Motor to Pump Assembly 3">
-      <img src="GearBox4.png" alt="Motor to Pump Assembly 4">
-      <img src="GearBox5.png" alt="Motor to Pump Assembly 5">
+      <img src="GearBox1.png" alt="GearBox1">
+      <img src="GearBox2.png" alt="GearBox2">
+      <img src="GearBox3.png" alt="GearBox3">
+      <img src="GearBox4.png" alt="GearBox4">
+      <img src="GearBox5.png" alt="GearBox5">
     </div>
   </div>
 
