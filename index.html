@@ -28,23 +28,50 @@
     .video-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px; /* space between videos */
+      gap: 20px;
     }
     .video-container {
-      flex: 1 1 45%; /* each container takes equal width */
+      flex: 1 1 45%;
     }
     .video-container video {
-      width: 100%; /* video fills its container */
+      width: 100%;
     }
-    @media (max-width: 700px) {
-      .video-container {
-        flex: 1 1 100%; /* stack videos on small screens */
+    /* Grid for multiple images */
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .image-grid img {
+      flex: 1 1 calc(20% - 16px); /* 5 images per row */
+      max-width: 100%;
+    }
+    @media (max-width: 1000px) {
+      .image-grid img {
+        flex: 1 1 calc(33% - 16px); /* 3 per row on smaller screens */
+      }
+    }
+    @media (max-width: 600px) {
+      .image-grid img {
+        flex: 1 1 100%; /* 1 per row on mobile */
       }
     }
   </style>
 </head>
 <body>
   <h1>Matthew's CAD Projects</h1>
+
+  <!-- New Top Project: Motor to Pump Assembly -->
+  <div class="project">
+    <h2>Motor to Pump Assembly</h2>
+    <div class="image-grid">
+      <img src="motor_pump_1.png" alt="Motor to Pump Assembly 1">
+      <img src="motor_pump_2.png" alt="Motor to Pump Assembly 2">
+      <img src="motor_pump_3.png" alt="Motor to Pump Assembly 3">
+      <img src="motor_pump_4.png" alt="Motor to Pump Assembly 4">
+      <img src="motor_pump_5.png" alt="Motor to Pump Assembly 5">
+    </div>
+  </div>
 
   <!-- First Project: Impeller Turbine -->
   <div class="project">
