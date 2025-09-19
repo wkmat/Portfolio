@@ -12,9 +12,8 @@
       color: #333;
       line-height: 1.6;
     }
-    h1 {
+    h1, h2, h3 {
       text-align: center;
-      margin-bottom: 40px;
     }
     .project {
       margin-bottom: 60px;
@@ -29,27 +28,31 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      justify-content: center;
     }
     .video-container {
       flex: 1 1 45%;
+      max-width: 45%;
     }
     .video-container video {
       width: 100%;
+      height: auto;
     }
     /* Grid for multiple images (same size as videos) */
     .image-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      justify-content: center;
     }
     .image-grid img {
-      flex: 1 1 45%; /* same size as video-container */
+      flex: 1 1 45%;
       max-width: 45%;
       height: auto;
     }
     @media (max-width: 800px) {
       .image-grid img, .video-container {
-        flex: 1 1 100%; /* stack on smaller screens */
+        flex: 1 1 100%;
         max-width: 100%;
       }
     }
@@ -57,7 +60,7 @@
     .square-video {
       position: relative;
       overflow: hidden;
-      padding-top: 100%; /* makes container square */
+      padding-top: 100%;
     }
     .square-video video {
       position: absolute;
@@ -65,7 +68,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* crop instead of stretch */
+      object-fit: cover;
     }
     /* Resume button */
     .resume-btn {
@@ -90,6 +93,7 @@
 </head>
 <body>
   <div class="top-bar">
+    <h1>Matt's Page</h1>
     <a href="Matt's Resume 9:9:2025.pdf" target="_blank" class="resume-btn">Resume</a>
   </div>
 
@@ -123,7 +127,7 @@
   <!-- Second Project: PC Case -->
   <div class="project">
     <h2>PC Case Design</h2>
-    <p>Magnetic mounted PC front cover plate assembly and 3D print.</p>
+    <p style="text-align: center;">Magnetic mounted PC front cover plate assembly and 3D print.</p>
     
     <div class="video-row">
       <!-- Video 1: Assembly -->
