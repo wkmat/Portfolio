@@ -31,7 +31,7 @@
 
     /* Media container for all images and videos */
     .media-container {
-      width: 300px;           /* fixed width for images/videos */
+      width: 300px;           /* fixed width for all images/videos */
       height: 169px;          /* 16:9 ratio */
       position: relative;
       overflow: hidden;
@@ -47,14 +47,13 @@
       object-fit: cover;
     }
 
-    /* Flex rows for images or videos */
-    .video-row,
-    .image-row {
+    /* Flex row for all media */
+    .media-row {
       display: flex;
       flex-wrap: nowrap;       /* force side by side */
       gap: 20px;
       justify-content: center;
-      overflow-x: auto;        /* allow horizontal scroll if needed */
+      overflow-x: auto;        /* scroll if too wide */
     }
 
     /* Resume button */
@@ -93,8 +92,12 @@
         width: 45%;
         height: auto;
       }
-      .video-row, .image-row {
-        flex-wrap: wrap;       /* allow stacking on smaller screens */
+    }
+
+    @media (max-width: 600px) {
+      .media-container {
+        width: 100%;
+        height: auto;
       }
     }
   </style>
@@ -110,7 +113,7 @@
   <!-- Motor to Pump Assembly -->
   <div class="project">
     <h2>Motor to Pump Assembly</h2>
-    <div class="image-row">
+    <div class="media-row">
       <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
       <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
       <div class="media-container"><img src="GearBox3.png" alt="GearBox3"></div>
@@ -119,13 +122,11 @@
     </div>
   </div>
 
-  <!-- Impeller Turbine -->
+  <!-- Impeller Turbine Assembly -->
   <div class="project">
     <h2>Impeller Turbine Assembly</h2>
-    <div class="image-row">
+    <div class="media-row">
       <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
-    </div>
-    <div class="video-row">
       <div class="media-container">
         <h3 style="position:absolute;top:5px;left:5px;color:white;text-shadow:1px 1px 4px rgba(0,0,0,0.7);">Simulation</h3>
         <video controls>
@@ -143,11 +144,11 @@
     </div>
   </div>
 
-  <!-- PC Case -->
+  <!-- PC Case Design -->
   <div class="project">
     <h2>PC Case Design</h2>
     <p style="text-align: center;">Magnetic mounted PC front cover plate assembly and 3D print.</p>
-    <div class="video-row">
+    <div class="media-row">
       <div class="media-container">
         <h3 style="position:absolute;top:5px;left:5px;color:white;text-shadow:1px 1px 4px rgba(0,0,0,0.7);">Assembly</h3>
         <video controls>
@@ -165,7 +166,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     © 2025 Matthew Chesnut | Portfolio
   </footer>
