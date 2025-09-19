@@ -25,51 +25,20 @@
     .project {
       margin-bottom: 60px;
     }
-    img, video {
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-      margin-top: 15px;
-    }
-    /* Flex row for videos */
-    .video-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .video-container {
+
+    /* Make all images and videos the same size as turbine simulation */
+    .media-container {
       flex: 1 1 45%;
       max-width: 45%;
-    }
-    .video-container video {
-      width: 100%;
-      height: auto;
-    }
-    /* Grid for multiple images */
-    .image-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .image-grid img {
-      flex: 1 1 45%;
-      max-width: 45%;
-      height: auto;
-    }
-    @media (max-width: 800px) {
-      .image-grid img, .video-container {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
-    }
-    /* Force square crop for 3D print video */
-    .square-video {
       position: relative;
       overflow: hidden;
-      padding-top: 100%;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
     }
-    .square-video video {
+
+    .media-container video,
+    .media-container img {
       position: absolute;
       top: 0;
       left: 0;
@@ -77,6 +46,24 @@
       height: 100%;
       object-fit: cover;
     }
+
+    /* Flex rows */
+    .video-row,
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    @media (max-width: 800px) {
+      .media-container {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding-top: 56.25%; /* maintain aspect ratio */
+      }
+    }
+
     /* Resume button */
     .resume-btn {
       display: inline-block;
@@ -96,6 +83,7 @@
       text-align: center;
       margin-bottom: 20px;
     }
+
     /* Footer */
     footer {
       text-align: center;
@@ -114,41 +102,34 @@
 
   <h1>Matthew's CAD Projects</h1>
 
-  <!-- New Top Project: Motor to Pump Assembly -->
+  <!-- Motor to Pump Assembly -->
   <div class="project">
     <h2>Motor to Pump Assembly</h2>
     <div class="image-grid">
-      <img src="GearBox1.png" alt="GearBox1">
-      <img src="GearBox2.png" alt="GearBox2">
-      <img src="GearBox3.png" alt="GearBox3">
-      <img src="GearBox4.png" alt="GearBox4">
-      <img src="GearBox5.png" alt="GearBox5">
+      <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
+      <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
+      <div class="media-container"><img src="GearBox3.png" alt="GearBox3"></div>
+      <div class="media-container"><img src="GearBox4.png" alt="GearBox4"></div>
+      <div class="media-container"><img src="GearBox5.png" alt="GearBox5"></div>
     </div>
   </div>
 
-  <!-- First Project: Impeller Turbine -->
+  <!-- Impeller Turbine -->
   <div class="project">
     <h2>Impeller Turbine Assembly</h2>
-    
-    <!-- New image -->
     <div class="image-grid">
-      <img src="impeller_parts.JPG" alt="Impeller parts">
+      <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
     </div>
-    
-    <!-- Videos side by side -->
     <div class="video-row">
-      <!-- Existing video -->
-      <div class="video-container">
-        <h3>Simulation</h3>
+      <div class="media-container">
+        <h3 style="position:absolute;top:5px;left:5px;color:white;text-shadow:1px 1px 4px rgba(0,0,0,0.7);">Simulation</h3>
         <video controls>
           <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
-
-      <!-- New video -->
-      <div class="video-container">
-        <h3>Rotation Animation</h3>
+      <div class="media-container">
+        <h3 style="position:absolute;top:5px;left:5px;color:white;text-shadow:1px 1px 4px rgba(0,0,0,0.7);">Rotation Animation</h3>
         <video controls>
           <source src="impeller_vid.mp4" type="video/mp4">
           Your browser does not support the video tag.
@@ -157,24 +138,20 @@
     </div>
   </div>
 
-  <!-- Second Project: PC Case -->
+  <!-- PC Case -->
   <div class="project">
     <h2>PC Case Design</h2>
     <p style="text-align: center;">Magnetic mounted PC front cover plate assembly and 3D print.</p>
-    
     <div class="video-row">
-      <!-- Video 1: Assembly -->
-      <div class="video-container">
-        <h3>Assembly</h3>
+      <div class="media-container">
+        <h3 style="position:absolute;top:5px;left:5px;color:white;text-shadow:1px 1px 4px rgba(0,0,0,0.7);">Assembly</h3>
         <video controls>
           <source src="PC_Case.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
-
-      <!-- Video 2: 3D Print (cropped square) -->
-      <div class="video-container square-video">
-        <h3>3D Print</h3>
+      <div class="media-container">
+        <h3 style="position:absolute;top:5px;left:5px;color:white;text-shadow:1px 1px 4px rgba(0,0,0,0.7);">3D Print</h3>
         <video controls>
           <source src="3D_Printedcase.mp4" type="video/mp4">
           Your browser does not support the video tag.
