@@ -53,6 +53,21 @@
         max-width: 100%;
       }
     }
+
+    /* Force square crop for 3D print video */
+    .square-video {
+      position: relative;
+      overflow: hidden;
+      padding-top: 100%; /* makes container square */
+    }
+    .square-video video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* crop instead of stretch */
+    }
   </style>
 </head>
 <body>
@@ -98,8 +113,8 @@
         </video>
       </div>
 
-      <!-- Video 2: 3D Print -->
-      <div class="video-container">
+      <!-- Video 2: 3D Print (cropped square) -->
+      <div class="video-container square-video">
         <h3>3D Print</h3>
         <video controls>
           <source src="3D_Printedcase.mp4" type="video/mp4">
