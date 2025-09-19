@@ -31,8 +31,8 @@
 
     /* Media container for all images and videos */
     .media-container {
-      width: 45%;               /* Fit two side by side */
-      aspect-ratio: 16/9;       /* Keep 16:9 ratio */
+      width: 300px;           /* fixed width for images/videos */
+      height: 169px;          /* 16:9 ratio */
       position: relative;
       overflow: hidden;
       border-radius: 10px;
@@ -49,11 +49,12 @@
 
     /* Flex rows for images or videos */
     .video-row,
-    .image-grid {
+    .image-row {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;       /* force side by side */
       gap: 20px;
       justify-content: center;
+      overflow-x: auto;        /* allow horizontal scroll if needed */
     }
 
     /* Resume button */
@@ -89,7 +90,11 @@
     /* Responsive adjustments */
     @media (max-width: 1000px) {
       .media-container {
-        width: 90%; /* stack on smaller screens */
+        width: 45%;
+        height: auto;
+      }
+      .video-row, .image-row {
+        flex-wrap: wrap;       /* allow stacking on smaller screens */
       }
     }
   </style>
@@ -105,7 +110,7 @@
   <!-- Motor to Pump Assembly -->
   <div class="project">
     <h2>Motor to Pump Assembly</h2>
-    <div class="image-grid">
+    <div class="image-row">
       <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
       <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
       <div class="media-container"><img src="GearBox3.png" alt="GearBox3"></div>
@@ -117,7 +122,7 @@
   <!-- Impeller Turbine -->
   <div class="project">
     <h2>Impeller Turbine Assembly</h2>
-    <div class="image-grid">
+    <div class="image-row">
       <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
     </div>
     <div class="video-row">
