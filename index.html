@@ -7,20 +7,27 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
+      background: url("Website_background.jpg") no-repeat center center fixed;
+      background-size: cover; /* Ensures the image fills the screen */
       margin: 40px;
       color: #333;
       line-height: 1.6;
     }
     h1, h2, h3 {
       text-align: center;
+      color: white; /* Make text pop on dark backgrounds */
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+    p {
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
     .project {
       margin-bottom: 60px;
     }
     img, video {
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       margin-top: 15px;
     }
     /* Flex row for videos */
@@ -38,7 +45,7 @@
       width: 100%;
       height: auto;
     }
-    /* Grid for multiple images (same size as videos) */
+    /* Grid for multiple images */
     .image-grid {
       display: flex;
       flex-wrap: wrap;
@@ -97,7 +104,7 @@
     <a href="Matt's Resume 9:9:2025.pdf" target="_blank" class="resume-btn">Resume</a>
   </div>
 
-  <h1>My CAD Projects</h1>
+  <h1>Matthew's CAD Projects</h1>
 
   <!-- New Top Project: Motor to Pump Assembly -->
   <div class="project">
