@@ -26,22 +26,19 @@
       margin-bottom: 60px;
     }
 
-    /* Make all images and videos the same size as turbine simulation */
+    /* All images and videos fixed to 2940x1662 */
     .media-container {
-      flex: 1 1 45%;
-      max-width: 45%;
+      width: 2940px;
+      height: 1662px;
       position: relative;
       overflow: hidden;
-      padding-top: 56.25%; /* 16:9 aspect ratio */
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      margin-top: 15px;
     }
 
     .media-container video,
     .media-container img {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -54,14 +51,6 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-    }
-
-    @media (max-width: 800px) {
-      .media-container {
-        flex: 1 1 100%;
-        max-width: 100%;
-        padding-top: 56.25%; /* maintain aspect ratio */
-      }
     }
 
     /* Resume button */
@@ -91,6 +80,20 @@
       font-size: 14px;
       margin-top: 50px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 3200px) {
+      .media-container {
+        width: 90%; /* scale down on smaller screens */
+        height: calc(90% * 1662 / 2940); /* maintain aspect ratio */
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .media-container {
+        width: 100%;
+        height: calc(100% * 1662 / 2940);
+      }
     }
   </style>
 </head>
