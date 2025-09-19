@@ -7,154 +7,115 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: url("Website_background.jpg") no-repeat center center fixed;
-      background-size: cover; /* Ensures the image fills the screen */
+      background-color: #f8f9fa;
       margin: 40px;
       color: #333;
       line-height: 1.6;
     }
-    h1, h2, h3 {
+
+    header {
       text-align: center;
-      color: white; /* Make text pop on dark backgrounds */
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      margin-bottom: 40px;
     }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
     p {
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      font-size: 1.1em;
+      color: #555;
     }
-    .project {
-      margin-bottom: 60px;
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
-    img, video {
+
+    .card {
+      background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-      margin-top: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
-    /* Flex row for videos */
-    .video-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+
+    .card:hover {
+      transform: translateY(-5px);
     }
-    .video-container {
-      flex: 1 1 45%;
-      max-width: 45%;
+
+    .card h2 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #222;
     }
-    .video-container video {
-      width: 100%;
-      height: auto;
+
+    .card p {
+      font-size: 0.95em;
+      margin-bottom: 15px;
     }
-    /* Grid for multiple images */
-    .image-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .image-grid img {
-      flex: 1 1 45%;
-      max-width: 45%;
-      height: auto;
-    }
-    @media (max-width: 800px) {
-      .image-grid img, .video-container {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
-    }
-    /* Force square crop for 3D print video */
-    .square-video {
-      position: relative;
-      overflow: hidden;
-      padding-top: 100%;
-    }
-    .square-video video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    /* Resume button */
-    .resume-btn {
+
+    .card a {
       display: inline-block;
-      background: #007bff;
-      color: white;
-      padding: 10px 20px;
-      margin-bottom: 30px;
-      border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
+      padding: 10px 15px;
+      border-radius: 6px;
+      background-color: #333; /* dark grey button */
+      color: white;
+      font-size: 0.9em;
+      transition: background-color 0.2s ease;
     }
-    .resume-btn:hover {
-      background: #0056b3;
+
+    .card a:hover {
+      background-color: #555; /* lighter grey on hover */
     }
-    .top-bar {
+
+    footer {
       text-align: center;
-      margin-bottom: 20px;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <h1>Matt's Page</h1>
-    <a href="Matt's Resume 9:9:2025.pdf" target="_blank" class="resume-btn">Resume</a>
-  </div>
+  <header>
+    <h1>Matthew's CAD Projects</h1>
+    <p>A showcase of my engineering and design work.</p>
+  </header>
 
-  <h1>Matthew's CAD Projects</h1>
-
-  <!-- New Top Project: Motor to Pump Assembly -->
-  <div class="project">
-    <h2>Motor to Pump Assembly</h2>
-    <div class="image-grid">
-      <img src="GearBox1.png" alt="GearBox1">
-      <img src="GearBox2.png" alt="GearBox2">
-      <img src="GearBox3.png" alt="GearBox3">
-      <img src="GearBox4.png" alt="GearBox4">
-      <img src="GearBox5.png" alt="GearBox5">
+  <section class="projects">
+    <div class="card">
+      <h2>Twin-Cylinder Engine</h2>
+      <p>Modeled and assembled in SolidWorks, inspired by a slider-crank mechanism with 570cc displacement.</p>
+      <a href="#">View Project</a>
     </div>
-  </div>
 
-  <!-- First Project: Impeller Turbine -->
-  <div class="project">
-    <h2>Impeller Turbine Assembly</h2>
-    <div class="video-row">
-      <div class="video-container">
-        <video controls>
-          <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+    <div class="card">
+      <h2>Gear Reduction Unit</h2>
+      <p>Two-stage spur gear design achieving a 10:1 reduction ratio with efficient power transfer.</p>
+      <a href="#">View Project</a>
     </div>
-  </div>
 
-  <!-- Second Project: PC Case -->
-  <div class="project">
-    <h2>PC Case Design</h2>
-    <p style="text-align: center;">Magnetic mounted PC front cover plate assembly and 3D print.</p>
-    
-    <div class="video-row">
-      <!-- Video 1: Assembly -->
-      <div class="video-container">
-        <h3>Assembly</h3>
-        <video controls>
-          <source src="PC_Case.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <!-- Video 2: 3D Print (cropped square) -->
-      <div class="video-container square-video">
-        <h3>3D Print</h3>
-        <video controls>
-          <source src="3D_Printedcase.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+    <div class="card">
+      <h2>Structural Analysis</h2>
+      <p>Finite Element Analysis on a support beam to evaluate stress distribution and deformation under load.</p>
+      <a href="#">View Project</a>
     </div>
-  </div>
+
+    <div class="card">
+      <h2>Resume</h2>
+      <p>Download my professional resume for more details on my education and experience.</p>
+      <a href="resume.pdf" target="_blank">Download Resume</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Matthew | CAD Projects Portfolio</p>
+  </footer>
 </body>
 </html>
