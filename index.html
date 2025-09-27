@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: url("Website_background.jpg") no-repeat center center fixed;
+      background: #000 url("Website_background.jpg") no-repeat center center fixed;
       background-size: cover;
       margin: 40px;
       color: #333;
@@ -124,19 +124,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 35px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .close:hover {
-      color: #ccc;
-    }
   </style>
 </head>
 <body>
@@ -210,32 +197,28 @@ Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupl
 
   <!-- Modal for enlarged images -->
   <div id="imageModal" class="modal">
-    <span class="close">&times;</span>
     <img id="modalImg" src="">
   </div>
 
   <script>
-    // Get modal elements
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
-    const closeBtn = document.querySelector(".close");
 
-    // Attach click listeners only to images
+    // Toggle modal open/close on image click
     document.querySelectorAll(".media-container img").forEach(img => {
       img.addEventListener("click", () => {
-        modal.style.display = "block";
-        modalImg.src = img.src;
+        if (modal.style.display === "block" && modalImg.src === img.src) {
+          modal.style.display = "none"; // close if already open on same image
+        } else {
+          modal.style.display = "block";
+          modalImg.src = img.src;
+        }
       });
     });
 
-    // Close modal on X click
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-
-    // Close modal on background click
+    // Close modal when clicking background
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
+      if (e.target === modal || e.target === modalImg) {
         modal.style.display = "none";
       }
     });
