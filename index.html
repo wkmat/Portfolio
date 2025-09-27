@@ -7,8 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #000 url("Website_background.jpg") no-repeat center center fixed;
-      background-size: cover;
+      background-color: #111; /* matte black */
       margin: 40px;
       color: #333;
       line-height: 1.6;
@@ -31,14 +30,14 @@
 
     /* Media container for all images and videos */
     .media-container {
-      width: 300px;           /* fixed width for all images/videos */
-      height: 169px;          /* 16:9 ratio */
+      width: 300px;
+      height: 169px; /* 16:9 ratio */
       position: relative;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       margin-top: 15px;
-      cursor: pointer; /* for images */
+      cursor: pointer; 
     }
 
     .media-container img,
@@ -51,10 +50,10 @@
     /* Flex row for all media */
     .media-row {
       display: flex;
-      flex-wrap: nowrap;       /* force side by side */
+      flex-wrap: nowrap;
       gap: 20px;
       justify-content: center;
-      overflow-x: auto;        /* scroll if too wide */
+      overflow-x: auto;
     }
 
     /* Resume button */
@@ -78,7 +77,6 @@
       margin-bottom: 20px;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       color: white;
@@ -137,10 +135,7 @@
   <!-- Motor to Pump Assembly -->
   <div class="project">
     <h2>Motor to Pump Assembly</h2>
-    <p style="text-align: center;">This assembly has 22 parts total (6296K11_Hydraulic Pump, 59845K11_Base Face-Mount AC Motor, GRU Case Bottom, GRU Case Top, Spur Gears, Drive Pin, Output Pin, 
-Straight Pins, GRU to Pump Coupler, Motor to GRU Coupler, Motor Shaft to GRU Coupler GRU Side, Motor Shaft to GRU Coupler Motor Side, Motor to GRU Mounting Adapter, Pump to GRU Coupler GRU Side, 
-Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupler, Machine Screw Hex Nut, Flat Washer Type A, Socket Head Cap Screw, Hex Bolt) The GRU (Gear Reduction Unit) is 
-14in x 3in x 5.5in and uses a 10:1 gear ratio for the pump to operate at a low RPM with high torque.</p>
+    <p style="text-align: center;">This assembly has 22 parts total ...</p>
     <div class="media-row">
       <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
       <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
@@ -157,15 +152,13 @@ Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupl
     <div class="media-row">
       <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
       <div class="media-container">
-        <video controls>
-          <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <video controls poster="Impeller_Turbine_Poster.jpg">
+          <source src="Impeller_Turbine_Assembly_Simulation.mp4" type="video/mp4">
         </video>
       </div>
       <div class="media-container">
-        <video controls>
+        <video controls poster="Impeller_Rotation_Poster.jpg">
           <source src="impeller_vid.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
     </div>
@@ -177,15 +170,13 @@ Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupl
     <p style="text-align: center;">Magnetic mounted PC front cover plate assembly and 3D print.</p>
     <div class="media-row">
       <div class="media-container">
-        <video controls>
+        <video controls poster="PC_Case_Poster.jpg">
           <source src="PC_Case.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
       <div class="media-container">
-        <video controls>
+        <video controls poster="3D_Print_Poster.jpg">
           <source src="3D_Printedcase.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
     </div>
@@ -204,11 +195,11 @@ Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupl
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
 
-    // Toggle modal open/close on image click
+    // Open image in modal
     document.querySelectorAll(".media-container img").forEach(img => {
       img.addEventListener("click", () => {
-        if (modal.style.display === "block" && modalImg.src === img.src) {
-          modal.style.display = "none"; // close if already open on same image
+        if(modal.style.display === "block") {
+          modal.style.display = "none";
         } else {
           modal.style.display = "block";
           modalImg.src = img.src;
@@ -216,11 +207,9 @@ Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupl
       });
     });
 
-    // Close modal when clicking background
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal || e.target === modalImg) {
-        modal.style.display = "none";
-      }
+    // Close modal on background click
+    modal.addEventListener("click", () => {
+      modal.style.display = "none";
     });
   </script>
 </body>
