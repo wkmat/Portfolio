@@ -31,14 +31,14 @@
 
     /* Media container for all images and videos */
     .media-container {
-      width: 300px;           /* fixed width */
+      width: 300px;           /* fixed width for all images/videos */
       height: 169px;          /* 16:9 ratio */
       position: relative;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       margin-top: 15px;
-      transition: transform 0.3s ease; /* smooth hover animation */
+      cursor: pointer; /* for images */
     }
 
     .media-container img,
@@ -46,12 +46,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    /* Hover grow effect */
-    .media-container:hover {
-      transform: scale(1.1);
-      z-index: 2;
     }
 
     /* Flex row for all media */
@@ -106,6 +100,42 @@
         width: 100%;
         height: auto;
       }
+    }
+
+    /* Modal for enlarged images */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.9);
+    }
+
+    .modal img {
+      display: block;
+      margin: auto;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #ccc;
     }
   </style>
 </head>
@@ -177,5 +207,38 @@ Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupl
   <footer>
     © 2025 Matthew Chesnut | Portfolio
   </footer>
+
+  <!-- Modal for enlarged images -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img id="modalImg" src="">
+  </div>
+
+  <script>
+    // Get modal elements
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.querySelector(".close");
+
+    // Attach click listeners only to images
+    document.querySelectorAll(".media-container img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      });
+    });
+
+    // Close modal on X click
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // Close modal on background click
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>
