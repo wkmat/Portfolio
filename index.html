@@ -3,153 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matthew's CAD Projects</title>
+  <title>Matthew's Projects</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: url('Website_background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      margin: 0;
-      padding: 0;
-      color: #fff;
+      background: #1a1a1a; /* light matte black background */
+      margin: 40px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
       text-align: center;
-    }
-    header {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    .resume-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #333;
       color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 1em;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     }
-    .resume-button:hover {
-      background-color: #555;
+
+    p {
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
-    section {
-      padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.6);
-      margin: 20px auto;
-      border-radius: 10px;
-      max-width: 1200px;
-    }
-    section h2 {
-      font-size: 2em;
+
+    .top-bar {
+      text-align: center;
       margin-bottom: 20px;
     }
-    .media-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
+
+    .about-me {
+      margin-top: 15px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 16px;
+      color: #ddd;
+      text-align: center;
+      line-height: 1.5;
     }
+
+    .project {
+      margin-bottom: 60px;
+    }
+
+    /* Media container for all images and videos */
+    .media-container {
+      width: 300px;           /* fixed width for all images/videos */
+      height: 169px;          /* 16:9 ratio */
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      margin-top: 15px;
+      cursor: pointer; /* for images */
+    }
+
     .media-container img,
     .media-container video {
-      width: 30%;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .media-container img:hover,
-    .media-container video:hover {
-      transform: scale(1.05);
+
+    /* Flex row for all media */
+    .media-row {
+      display: flex;
+      flex-wrap: nowrap;       /* force side by side */
+      gap: 20px;
+      justify-content: center;
+      overflow-x: auto;        /* scroll if too wide */
     }
-    /* Lightbox */
-    .lightbox {
-      display: none;
+
+    /* Resume button */
+    .resume-btn {
+      display: inline-block;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .resume-btn:hover {
+      background: #555;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: white;
+      font-size: 14px;
+      margin-top: 50px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1000px) {
+      .media-container {
+        width: 45%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .media-container {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Modal for enlarged images */
+    .modal {
+      display: none; 
       position: fixed;
       z-index: 1000;
-      padding-top: 50px;
+      padding-top: 60px;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.9);
     }
-    .lightbox-content {
-      margin: auto;
+
+    .modal img {
       display: block;
-      max-width: 80%;
-      max-height: 80%;
+      margin: auto;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     }
   </style>
 </head>
 <body>
+  <div class="top-bar">
+    <h1>Matt's Page</h1>
+    <a href="Matt's Resume 9:24:25.pdf" target="_blank" class="resume-btn">Resume</a>
 
-  <header>
-    <h1>Matthew's CAD Projects</h1>
-    <a href="Matthew_Resume.pdf" class="resume-button" target="_blank">Resume</a>
-  </header>
+    <!-- About Me Section -->
+    <div class="about-me">
+      <p>Hello! My name is Matthew Chesnut. I am passionate about engineering and 3D design, with experience in mechanical assemblies, CAD modeling, and prototyping.  
+      On this page, you’ll find a collection of my technical projects, showcasing my work with gear assemblies, turbines, and custom PC case designs.  
+      I enjoy learning new skills, problem-solving, and creating functional designs that combine innovation and practicality.</p>
+    </div>
+  </div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! My name is Matthew. I’m passionate about engineering, CAD design, and creating innovative mechanical systems. This page highlights some of my CAD projects, simulations, and assemblies. Thank you for visiting!</p>
-  </section>
+  <h1>Technical Projects</h1>
 
-  <section id="motor-pump">
+  <!-- Motor to Pump Assembly -->
+  <div class="project">
     <h2>Motor to Pump Assembly</h2>
-    <div class="media-container">
-      <img src="motor1.jpg" alt="Motor Pump 1" onclick="openLightbox(this)">
-      <img src="motor2.jpg" alt="Motor Pump 2" onclick="openLightbox(this)">
-      <img src="motor3.jpg" alt="Motor Pump 3" onclick="openLightbox(this)">
-      <img src="motor4.jpg" alt="Motor Pump 4" onclick="openLightbox(this)">
-      <img src="motor5.jpg" alt="Motor Pump 5" onclick="openLightbox(this)">
+    <p style="text-align: center;">This assembly has 22 parts total (6296K11_Hydraulic Pump, 59845K11_Base Face-Mount AC Motor, GRU Case Bottom, GRU Case Top, Spur Gears, Drive Pin, Output Pin, 
+Straight Pins, GRU to Pump Coupler, Motor to GRU Coupler, Motor Shaft to GRU Coupler GRU Side, Motor Shaft to GRU Coupler Motor Side, Motor to GRU Mounting Adapter, Pump to GRU Coupler GRU Side, 
+Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupler, Machine Screw Hex Nut, Flat Washer Type A, Socket Head Cap Screw, Hex Bolt) The GRU (Gear Reduction Unit) is 
+14in x 3in x 5.5in and uses a 10:1 gear ratio for the pump to operate at a low RPM with high torque.</p>
+    <div class="media-row">
+      <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
+      <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
+      <div class="media-container"><img src="GearBox3.png" alt="GearBox3"></div>
+      <div class="media-container"><img src="GearBox4.png" alt="GearBox4"></div>
+      <div class="media-container"><img src="GearBox5.png" alt="GearBox5"></div>
     </div>
-  </section>
+  </div>
 
-  <section id="impeller">
+  <!-- Impeller Turbine Assembly -->
+  <div class="project">
     <h2>Impeller Turbine Assembly</h2>
-    <div class="media-container">
-      <img src="impeller1.jpeg" alt="Impeller Image" onclick="openLightbox(this)">
-      <video controls poster="impeller_preview.jpg">
-        <source src="Impeller_Turbine_Assembly_Simulation.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <video controls poster="impeller_preview2.jpg">
-        <source src="Impeller_Turbine_Assembly_Simulation2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <p style="text-align: center;">Impeller + turbine design and 3D print.</p>
+    <div class="media-row">
+      <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
+      <div class="media-container">
+        <video controls poster="impeller_preview.png">
+          <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls poster="impeller_vid_preview.png">
+          <source src="impeller_vid.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section id="pc-case">
-    <h2>PC Case</h2>
-    <div class="media-container">
-      <video controls poster="pc_case_preview1.jpg">
-        <source src="PC_Case_Simulation1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <video controls poster="pc_case_preview2.jpg">
-        <source src="PC_Case_Simulation2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+  <!-- PC Case Design -->
+  <div class="project">
+    <h2>PC Case Design</h2>
+    <p style="text-align: center;">Magnetic mounted PC front cover plate assembly and 3D print.</p>
+    <div class="media-row">
+      <div class="media-container">
+        <video controls poster="pc_case_preview.png">
+          <source src="PC_Case.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls poster="3d_print_preview.png">
+          <source src="3D_Printedcase.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img class="lightbox-content" id="lightbox-img">
+  <footer>
+    © 2025 Matthew Chesnut | Portfolio
+  </footer>
+
+  <!-- Modal for enlarged images -->
+  <div id="imageModal" class="modal">
+    <img id="modalImg" src="">
   </div>
 
   <script>
-    function openLightbox(element) {
-      document.getElementById("lightbox").style.display = "block";
-      document.getElementById("lightbox-img").src = element.src;
-    }
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-  </script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
 
+    // Toggle modal open/close on image click
+    document.querySelectorAll(".media-container img").forEach(img => {
+      img.addEventListener("click", () => {
+        if (modal.style.display === "block" && modalImg.src === img.src) {
+          modal.style.display = "none"; // close if already open on same image
+        } else {
+          modal.style.display = "block";
+          modalImg.src = img.src;
+        }
+      });
+    });
+
+    // Close modal when clicking background
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal || e.target === modalImg) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>
+
+
+
