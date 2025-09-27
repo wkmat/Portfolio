@@ -7,8 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #1a1a1a url("Website_background.jpg") no-repeat center center fixed;
-      background-size: cover;
+      background: #1a1a1a; /* light matte black background */
       margin: 40px;
       color: #333;
       line-height: 1.6;
@@ -31,14 +30,14 @@
 
     /* Media container for all images and videos */
     .media-container {
-      width: 300px;
-      height: 169px;
+      width: 300px;           /* fixed width for all images/videos */
+      height: 169px;          /* 16:9 ratio */
       position: relative;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       margin-top: 15px;
-      cursor: pointer;
+      cursor: pointer; /* for images */
     }
 
     .media-container img,
@@ -51,10 +50,10 @@
     /* Flex row for all media */
     .media-row {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: nowrap;       /* force side by side */
       gap: 20px;
       justify-content: center;
-      overflow-x: auto;
+      overflow-x: auto;        /* scroll if too wide */
     }
 
     /* Resume button */
