@@ -31,14 +31,14 @@
 
     /* Media container for all images and videos */
     .media-container {
-      width: 300px;
-      height: 169px;
+      width: 300px;           /* fixed width for all images/videos */
+      height: 169px;          /* 16:9 ratio */
       position: relative;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       margin-top: 15px;
-      cursor: pointer;
+      cursor: pointer; /* for images */
     }
 
     .media-container img,
@@ -51,10 +51,10 @@
     /* Flex row for all media */
     .media-row {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: nowrap;       /* force side by side */
       gap: 20px;
       justify-content: center;
-      overflow-x: auto;
+      overflow-x: auto;        /* scroll if too wide */
     }
 
     /* Resume button */
@@ -76,25 +76,6 @@
     .top-bar {
       text-align: center;
       margin-bottom: 20px;
-    }
-
-    /* Overlay for enlarged image */
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .overlay img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     }
 
     /* Footer */
@@ -120,6 +101,42 @@
         height: auto;
       }
     }
+
+    /* Modal for enlarged images */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.9);
+    }
+
+    .modal img {
+      display: block;
+      margin: auto;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
@@ -133,7 +150,10 @@
   <!-- Motor to Pump Assembly -->
   <div class="project">
     <h2>Motor to Pump Assembly</h2>
-    <p style="text-align: center;">This assembly has 22 parts total...</p>
+    <p style="text-align: center;">This assembly has 22 parts total (6296K11_Hydraulic Pump, 59845K11_Base Face-Mount AC Motor, GRU Case Bottom, GRU Case Top, Spur Gears, Drive Pin, Output Pin, 
+Straight Pins, GRU to Pump Coupler, Motor to GRU Coupler, Motor Shaft to GRU Coupler GRU Side, Motor Shaft to GRU Coupler Motor Side, Motor to GRU Mounting Adapter, Pump to GRU Coupler GRU Side, 
+Pump to GRU Coupler Pump Side, Pump to GRU Mounting Adapter, Shaft Key GRU Coupler, Machine Screw Hex Nut, Flat Washer Type A, Socket Head Cap Screw, Hex Bolt) The GRU (Gear Reduction Unit) is 
+14in x 3in x 5.5in and uses a 10:1 gear ratio for the pump to operate at a low RPM with high torque.</p>
     <div class="media-row">
       <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
       <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
@@ -143,38 +163,80 @@
     </div>
   </div>
 
-  <!-- Overlay for enlarged image -->
-  <div class="overlay" id="overlay">
-    <img id="overlay-img" src="" alt="Enlarged image">
+  <!-- Impeller Turbine Assembly -->
+  <div class="project">
+    <h2>Impeller Turbine Assembly</h2>
+    <p style="text-align: center;">Impeller + turbine design and 3D print.</p>
+    <div class="media-row">
+      <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
+      <div class="media-container">
+        <video controls>
+          <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls>
+          <source src="impeller_vid.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- PC Case Design -->
+  <div class="project">
+    <h2>PC Case Design</h2>
+    <p style="text-align: center;">Magnetic mounted PC front cover plate assembly and 3D print.</p>
+    <div class="media-row">
+      <div class="media-container">
+        <video controls>
+          <source src="PC_Case.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls>
+          <source src="3D_Printedcase.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
   </div>
 
   <footer>
     © 2025 Matthew Chesnut | Portfolio
   </footer>
 
-  <script>
-    const overlay = document.getElementById("overlay");
-    const overlayImg = document.getElementById("overlay-img");
-    let currentImg = null;
+  <!-- Modal for enlarged images -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img id="modalImg" src="">
+  </div>
 
+  <script>
+    // Get modal elements
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.querySelector(".close");
+
+    // Attach click listeners only to images
     document.querySelectorAll(".media-container img").forEach(img => {
       img.addEventListener("click", () => {
-        if (overlay.style.display === "flex" && currentImg === img) {
-          overlay.style.display = "none"; // Close if clicking same image
-          currentImg = null;
-        } else {
-          overlayImg.src = img.src;
-          overlay.style.display = "flex"; // Open with new image
-          currentImg = img;
-        }
+        modal.style.display = "block";
+        modalImg.src = img.src;
       });
     });
 
-    // Also allow clicking outside image to close
-    overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) {
-        overlay.style.display = "none";
-        currentImg = null;
+    // Close modal on X click
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // Close modal on background click
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
       }
     });
   </script>
