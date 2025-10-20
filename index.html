@@ -11,7 +11,6 @@
       margin: 20px 40px 40px 40px;
       color: #333;
       line-height: 1.6;
-      overflow: hidden; /* disable default scrolling for snap */
     }
 
     h1, h2, h3 {
@@ -51,37 +50,34 @@
     }
 
     .about-me-section {
-      margin-top: 100px;
-      margin-bottom: 100px;
-      height: 100vh; /* full viewport height for snap */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  margin-top: 100px; /* Adjust this value to move the section further down */
+  margin-bottom: 100px;
+}
 
     /* Subtle divider between sections */
-    .section-divider {
-      border: none;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.2);
-      margin: 40px auto;
-      max-width: 2000px;
-    }
+.section-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2); /* subtle white line */
+  margin: 40px auto; /* spacing above and below */
+  max-width: 2000px; /* line width */
+}
+
 
     .project {
       margin-bottom: 60px;
     }
 
+    /* Media container for all images and videos */
     .media-container {
-      width: 300px;
-      height: 169px;
+      width: 300px;           /* fixed width for all images/videos */
+      height: 169px;          /* 16:9 ratio */
       position: relative;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       margin-top: 15px;
-      cursor: pointer;
+      cursor: pointer; /* for images */
     }
 
     .media-container img,
@@ -91,14 +87,16 @@
       object-fit: cover;
     }
 
+    /* Flex row for all media */
     .media-row {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: nowrap;       /* force side by side */
       gap: 20px;
       justify-content: center;
-      overflow-x: auto;
+      overflow-x: auto;        /* scroll if too wide */
     }
 
+    /* Resume button */
     .resume-btn {
       display: inline-block;
       background: #333;
@@ -113,20 +111,24 @@
       background: #555;
     }
 
-    .down-arrow {
-      font-size: 32px;
-      color: white;
-      text-align: center;
-      margin-top: 80px;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(8px); }
-      60% { transform: translateY(4px); }
-    }
+    /* Down arrow */
+.down-arrow {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  margin-top: 80px;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
 
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(8px); }
+  60% { transform: translateY(4px); }
+}
+
+    /* Footer */
     footer {
       text-align: center;
       color: white;
@@ -135,16 +137,24 @@
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
 
+    /* Responsive adjustments */
     @media (max-width: 1000px) {
-      .media-container { width: 45%; height: auto; }
+      .media-container {
+        width: 45%;
+        height: auto;
+      }
     }
 
     @media (max-width: 600px) {
-      .media-container { width: 100%; height: auto; }
+      .media-container {
+        width: 100%;
+        height: auto;
+      }
     }
 
+    /* Modal for enlarged images */
     .modal {
-      display: none;
+      display: none; 
       position: fixed;
       z-index: 1000;
       padding-top: 60px;
@@ -155,6 +165,7 @@
       overflow: auto;
       background: rgba(0,0,0,0.9);
     }
+
     .modal img {
       display: block;
       margin: auto;
@@ -162,16 +173,6 @@
       max-height: 80vh;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    }
-
-    /* Make Technical Projects section full height for snap */
-    #projects-section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-top: 80px;
     }
   </style>
 </head>
@@ -183,125 +184,155 @@
 
   <!-- About Me Section -->
   <div class="about-me-section">
-    <h1>About Me</h1>
-    <div class="about-me">
-      <p>
-        Hi! My name is Matt Chesnut. I'm a mechanical engineering student at the University of Maryland. 
-        The purpose of this page is to display what I enjoy doing, creating projects for fun and for purpose. 
-        Note: Not all completed projects listed, media not complete.
-      </p>
-    </div>
+  <h1>About Me</h1>
+  <div class="about-me">
+    <p>
+      Hi! My name is Matt Chesnut. I'm a mechanical engineering student at the University of Maryland. 
+      The purpose of this page is to display what I enjoy doing, creating projects for fun and for purpose. 
+      Note: Not all completed projects listed, media not complete.
+    </p>
+  </div>
     
-    <div class="down-arrow" onclick="scrollToProjects()">
-      &#x25BC;
+<!-- Down arrow -->
+  <div class="down-arrow" onclick="scrollToProjects()">
+    &#x25BC; <!-- Unicode for a downwards triangle arrow -->
+  </div>
+</div>
+  
+  <!-- Divider -->
+<hr class="section-divider">
+
+  <h1>Technical Projects</h1>
+
+  <!-- Motor to Pump Assembly -->
+<div class="project">
+  <h2>Motor to Pump Assembly</h2>
+  
+  <!-- Top row of 2 images -->
+  <div class="media-row">
+    <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
+    <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
+  </div>
+  
+  <!-- Bottom row of 3 images -->
+  <div class="media-row">
+    <div class="media-container"><img src="GearBox3.png" alt="GearBox3"></div>
+    <div class="media-container"><img src="GearBox4.png" alt="GearBox4"></div>
+    <div class="media-container"><img src="GearBox5.png" alt="GearBox5"></div>
+  </div>
+  
+    <p style="text-align: center; margin-top: 20px;">
+      This assembly has 22 parts total (6296K11_Hydraulic Pump, 59845K11_Base Face-Mount AC Motor, 
+      GRU Case Bottom, GRU Case Top, Spur Gears, Drive Pin, Output Pin, Straight Pins, 
+      GRU to Pump Coupler, Motor to GRU Coupler, Motor Shaft to GRU Coupler GRU Side, 
+      Motor Shaft to GRU Coupler Motor Side, Motor to GRU Mounting Adapter, 
+      Pump to GRU Coupler GRU Side, Pump to GRU Coupler Pump Side, 
+      Pump to GRU Mounting Adapter, Shaft Key GRU Coupler, Machine Screw Hex Nut, 
+      Flat Washer Type A, Socket Head Cap Screw, Hex Bolt).  
+      The GRU (Gear Reduction Unit) is 14in x 3in x 5.5in and uses a 10:1 gear ratio 
+      for the pump to operate at a low RPM with high torque.
+    </p>
+  </div>
+
+  <!-- Impeller Turbine Assembly -->
+  <div class="project">
+    <h2>Impeller Turbine Assembly</h2>
+    <div class="media-row">
+      <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
+      <div class="media-container">
+        <video controls poster="impeller_preview.png">
+          <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls poster="impeller_vid_preview.png">
+          <source src="impeller_vid.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px;">
+      Impeller + turbine design and 3D print.
+    </p>
+  </div>
+
+  <!-- Car-Mounted GoPro System -->
+<div class="project">
+  <h2>Car-Mounted GoPro System</h2>
+  
+  <!-- Top row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="GoproMount4.png" alt="GoPro Mount 4">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount5.png" alt="GoPro Mount 5">
+    </div>
+    <div class="media-container">
+      <img src="Gopromount6.png" alt="GoPro Mount 6">
+    </div>
+  </div>
+
+  <!-- Another Row -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="Gopromount7.png" alt="GoPro Mount 7">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount8.png" alt="GoPro Mount 8">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount9.png" alt="GoPro Mount 9">
     </div>
   </div>
   
-  <hr class="section-divider">
-
-  <!-- Technical Projects Section -->
-  <div id="projects-section">
-    <h1>Technical Projects</h1>
-
-    <!-- Motor to Pump Assembly -->
-    <div class="project">
-      <h2>Motor to Pump Assembly</h2>
-      <div class="media-row">
-        <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
-        <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
-      </div>
-      <div class="media-row">
-        <div class="media-container"><img src="GearBox3.png" alt="GearBox3"></div>
-        <div class="media-container"><img src="GearBox4.png" alt="GearBox4"></div>
-        <div class="media-container"><img src="GearBox5.png" alt="GearBox5"></div>
-      </div>
-      <p style="text-align: center; margin-top: 20px;">
-        This assembly has 22 parts total (6296K11_Hydraulic Pump, 59845K11_Base Face-Mount AC Motor, 
-        GRU Case Bottom, GRU Case Top, Spur Gears, Drive Pin, Output Pin, Straight Pins, 
-        GRU to Pump Coupler, Motor to GRU Coupler, Motor Shaft to GRU Coupler GRU Side, 
-        Motor Shaft to GRU Coupler Motor Side, Motor to GRU Mounting Adapter, 
-        Pump to GRU Coupler GRU Side, Pump to GRU Coupler Pump Side, 
-        Pump to GRU Mounting Adapter, Shaft Key GRU Coupler, Machine Screw Hex Nut, 
-        Flat Washer Type A, Socket Head Cap Screw, Hex Bolt).  
-        The GRU (Gear Reduction Unit) is 14in x 3in x 5.5in and uses a 10:1 gear ratio 
-        for the pump to operate at a low RPM with high torque.
-      </p>
+  <!-- Bottom row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="GoproMount1.png" alt="GoPro Mount 1">
     </div>
-
-    <!-- Impeller Turbine Assembly -->
-    <div class="project">
-      <h2>Impeller Turbine Assembly</h2>
-      <div class="media-row">
-        <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
-        <div class="media-container">
-          <video controls poster="impeller_preview.png">
-            <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="media-container">
-          <video controls poster="impeller_vid_preview.png">
-            <source src="impeller_vid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <p style="text-align: center; margin-top: 20px;">
-        Impeller + turbine design and 3D print.
-      </p>
+    <div class="media-container">
+      <img src="GoproMount2.png" alt="GoPro Mount 2">
     </div>
-
-    <!-- Car-Mounted GoPro System -->
-    <div class="project">
-      <h2>Car-Mounted GoPro System</h2>
-      <div class="media-row">
-        <div class="media-container"><img src="GoproMount4.png" alt="GoPro Mount 4"></div>
-        <div class="media-container"><img src="GoproMount5.png" alt="GoPro Mount 5"></div>
-        <div class="media-container"><img src="Gopromount6.png" alt="GoPro Mount 6"></div>
-      </div>
-      <div class="media-row">
-        <div class="media-container"><img src="Gopromount7.png" alt="GoPro Mount 7"></div>
-        <div class="media-container"><img src="GoproMount8.png" alt="GoPro Mount 8"></div>
-        <div class="media-container"><img src="GoproMount9.png" alt="GoPro Mount 9"></div>
-      </div>
-      <div class="media-row">
-        <div class="media-container"><img src="GoproMount1.png" alt="GoPro Mount 1"></div>
-        <div class="media-container"><img src="GoproMount2.png" alt="GoPro Mount 2"></div>
-        <div class="media-container"><img src="GoproMount3.png" alt="GoPro Mount 3"></div>
-      </div>
-      <p style="text-align: center; margin-top: 20px;">
-        Designed and fabricated a magnetic stable rear camera mount using SolidWorks, 3D Printing, and hand-machined 6061-T6 parts.
-      </p>
+    <div class="media-container">
+      <img src="GoproMount3.png" alt="GoPro Mount 3">
     </div>
-
-    <!-- PC Case Design -->
-    <div class="project">
-      <h2>PC Case Design</h2>
-      <div class="media-row">
-        <div class="media-container">
-          <video controls poster="pc_case_preview.png">
-            <source src="PC_Case.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="media-container">
-          <video controls poster="3d_print_preview.png">
-            <source src="3D_Printedcase.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <p style="text-align: center; margin-top: 20px;">
-        Magnetic mounted PC front cover plate assembly and 3D print.
-      </p>
-    </div>
-
-    <hr class="section-divider">
-
-    <footer>
-      © 2025 Matthew Chesnut | Portfolio
-    </footer>
   </div>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Designed and fabricated a magnetic stable rear camera mount using SolidWorks, 3D Printing, and hand-machined 6061-T6 parts.
+  </p>
+</div>
+
+  <!-- PC Case Design -->
+  <div class="project">
+    <h2>PC Case Design</h2>
+    <div class="media-row">
+      <div class="media-container">
+        <video controls poster="pc_case_preview.png">
+          <source src="PC_Case.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls poster="3d_print_preview.png">
+          <source src="3D_Printedcase.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px;">
+      Magnetic mounted PC front cover plate assembly and 3D print.
+    </p>
+  </div>
+
+    <!-- Divider -->
+<hr class="section-divider">
+
+  <footer>
+    © 2025 Matthew Chesnut | Portfolio
+  </footer>
 
   <!-- Modal for enlarged images -->
   <div id="imageModal" class="modal">
@@ -312,10 +343,11 @@
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
 
+    // Toggle modal open/close on image click
     document.querySelectorAll(".media-container img").forEach(img => {
       img.addEventListener("click", () => {
         if (modal.style.display === "block" && modalImg.src === img.src) {
-          modal.style.display = "none";
+          modal.style.display = "none"; // close if already open on same image
         } else {
           modal.style.display = "block";
           modalImg.src = img.src;
@@ -323,42 +355,11 @@
       });
     });
 
+    // Close modal when clicking background
     modal.addEventListener("click", (e) => {
       if (e.target === modal || e.target === modalImg) {
         modal.style.display = "none";
       }
-    });
-
-    // --- Smooth Snap Scroll Logic ---
-    const sections = [document.querySelector('.about-me-section'), document.getElementById('projects-section')];
-    let currentSection = 0;
-    let isScrolling = false;
-
-    function scrollToProjects() {
-      scrollToSection(1);
-    }
-
-    function scrollToSection(index) {
-      if (index < 0 || index >= sections.length) return;
-      isScrolling = true;
-      sections[index].scrollIntoView({ behavior: 'smooth' });
-      currentSection = index;
-      setTimeout(() => { isScrolling = false; }, 700);
-    }
-
-    window.addEventListener('wheel', e => {
-      if (isScrolling) return;
-      if (e.deltaY > 0) scrollToSection(currentSection + 1);
-      else if (e.deltaY < 0) scrollToSection(currentSection - 1);
-    });
-
-    let touchStartY = 0;
-    window.addEventListener('touchstart', e => touchStartY = e.touches[0].clientY, { passive: true });
-    window.addEventListener('touchend', e => {
-      const touchEndY = e.changedTouches[0].clientY;
-      if (isScrolling) return;
-      if (touchStartY - touchEndY > 50) scrollToSection(currentSection + 1);
-      else if (touchEndY - touchStartY > 50) scrollToSection(currentSection - 1);
     });
   </script>
 </body>
