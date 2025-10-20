@@ -202,7 +202,7 @@
   <!-- Divider -->
 <hr class="section-divider">
 
-  <h1>Technical Projects</h1>
+  <h1 id="projects-section">Technical Projects</h1>
 
   <!-- Motor to Pump Assembly -->
 <div class="project">
@@ -362,5 +362,19 @@
       }
     });
   </script>
+  
+  <script>
+  let scrolled = false; // ensures it only triggers once
+
+  window.addEventListener('wheel', function(e) {
+    if (!scrolled && e.deltaY > 0) { // detect scroll down
+      scrolled = true;
+      document.getElementById('projects-section').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
