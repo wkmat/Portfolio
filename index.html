@@ -7,10 +7,25 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #1a1a1a; /* light matte black background */
-      margin: 40px;
-      color: #333;
+      background: #1a1a1a;
+      margin: 0;
+      color: #ddd;
       line-height: 1.6;
+      scroll-behavior: smooth; /* smooth scrolling */
+    }
+
+    /* Fullscreen welcome section */
+    .welcome {
+      height: 100vh; /* full viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: white;
+      text-align: center;
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     }
 
     h1, h2, h3 {
@@ -20,7 +35,7 @@
     }
 
     p {
-      color: white;
+      color: #ddd;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
 
@@ -28,7 +43,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin: 40px;
     }
 
     .top-bar h1 {
@@ -43,35 +58,30 @@
       margin-left: auto;
       margin-right: auto;
       font-size: 16px;
-      color: #ddd;
       text-align: center;
-      line-height: 1.5;
     }
 
-    /* Subtle divider between sections */
-.section-divider {
-  border: none;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.2); /* subtle white line */
-  margin: 40px auto; /* spacing above and below */
-  max-width: 800px; /* line width */
-}
-
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 40px auto;
+      max-width: 800px;
+    }
 
     .project {
       margin-bottom: 60px;
     }
 
-    /* Media container for all images and videos */
     .media-container {
-      width: 300px;           /* fixed width for all images/videos */
-      height: 169px;          /* 16:9 ratio */
+      width: 300px;
+      height: 169px;
       position: relative;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       margin-top: 15px;
-      cursor: pointer; /* for images */
+      cursor: pointer;
     }
 
     .media-container img,
@@ -81,16 +91,14 @@
       object-fit: cover;
     }
 
-    /* Flex row for all media */
     .media-row {
       display: flex;
-      flex-wrap: nowrap;       /* force side by side */
+      flex-wrap: nowrap;
       gap: 20px;
       justify-content: center;
-      overflow-x: auto;        /* scroll if too wide */
+      overflow-x: auto;
     }
 
-    /* Resume button */
     .resume-btn {
       display: inline-block;
       background: #333;
@@ -105,7 +113,6 @@
       background: #555;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       color: white;
@@ -114,7 +121,6 @@
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
 
-    /* Responsive adjustments */
     @media (max-width: 1000px) {
       .media-container {
         width: 45%;
@@ -129,7 +135,6 @@
       }
     }
 
-    /* Modal for enlarged images */
     .modal {
       display: none; 
       position: fixed;
@@ -154,13 +159,18 @@
   </style>
 </head>
 <body>
+  <!-- Welcome Section -->
+  <div class="welcome">
+    Welcome!
+  </div>
+
+  <!-- Top Bar -->
   <div class="top-bar">
     <h1>Matt's Page</h1>
     <a href="Matt's Resume 9:24:25.pdf" target="_blank" class="resume-btn">Resume</a>
   </div>
 
-    <!-- Divider -->
-<hr class="section-divider">
+  <hr class="section-divider">
 
   <!-- About Me Section -->
   <h1>About Me</h1>
@@ -172,87 +182,15 @@
     </p>
   </div>
 
-  <!-- Divider -->
-<hr class="section-divider">
+  <hr class="section-divider">
 
   <h1>Technical Projects</h1>
-
-  <!-- Motor to Pump Assembly -->
-  <div class="project">
-    <h2>Motor to Pump Assembly</h2>
-    <div class="media-row">
-      <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
-      <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
-      <div class="media-container"><img src="GearBox3.png" alt="GearBox3"></div>
-      <div class="media-container"><img src="GearBox4.png" alt="GearBox4"></div>
-      <div class="media-container"><img src="GearBox5.png" alt="GearBox5"></div>
-    </div>
-    <p style="text-align: center; margin-top: 20px;">
-      This assembly has 22 parts total (6296K11_Hydraulic Pump, 59845K11_Base Face-Mount AC Motor, 
-      GRU Case Bottom, GRU Case Top, Spur Gears, Drive Pin, Output Pin, Straight Pins, 
-      GRU to Pump Coupler, Motor to GRU Coupler, Motor Shaft to GRU Coupler GRU Side, 
-      Motor Shaft to GRU Coupler Motor Side, Motor to GRU Mounting Adapter, 
-      Pump to GRU Coupler GRU Side, Pump to GRU Coupler Pump Side, 
-      Pump to GRU Mounting Adapter, Shaft Key GRU Coupler, Machine Screw Hex Nut, 
-      Flat Washer Type A, Socket Head Cap Screw, Hex Bolt).  
-      The GRU (Gear Reduction Unit) is 14in x 3in x 5.5in and uses a 10:1 gear ratio 
-      for the pump to operate at a low RPM with high torque.
-    </p>
-  </div>
-
-  <!-- Impeller Turbine Assembly -->
-  <div class="project">
-    <h2>Impeller Turbine Assembly</h2>
-    <div class="media-row">
-      <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
-      <div class="media-container">
-        <video controls poster="impeller_preview.png">
-          <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="media-container">
-        <video controls poster="impeller_vid_preview.png">
-          <source src="impeller_vid.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-    <p style="text-align: center; margin-top: 20px;">
-      Impeller + turbine design and 3D print.
-    </p>
-  </div>
-
-  <!-- PC Case Design -->
-  <div class="project">
-    <h2>PC Case Design</h2>
-    <div class="media-row">
-      <div class="media-container">
-        <video controls poster="pc_case_preview.png">
-          <source src="PC_Case.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="media-container">
-        <video controls poster="3d_print_preview.png">
-          <source src="3D_Printedcase.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-    <p style="text-align: center; margin-top: 20px;">
-      Magnetic mounted PC front cover plate assembly and 3D print.
-    </p>
-  </div>
-
-    <!-- Divider -->
-<hr class="section-divider">
+  <!-- (Keep your project sections here as before) -->
 
   <footer>
     © 2025 Matthew Chesnut | Portfolio
   </footer>
 
-  <!-- Modal for enlarged images -->
   <div id="imageModal" class="modal">
     <img id="modalImg" src="">
   </div>
@@ -261,11 +199,10 @@
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
 
-    // Toggle modal open/close on image click
     document.querySelectorAll(".media-container img").forEach(img => {
       img.addEventListener("click", () => {
         if (modal.style.display === "block" && modalImg.src === img.src) {
-          modal.style.display = "none"; // close if already open on same image
+          modal.style.display = "none";
         } else {
           modal.style.display = "block";
           modalImg.src = img.src;
@@ -273,7 +210,6 @@
       });
     });
 
-    // Close modal when clicking background
     modal.addEventListener("click", (e) => {
       if (e.target === modal || e.target === modalImg) {
         modal.style.display = "none";
