@@ -111,6 +111,23 @@
       background: #555;
     }
 
+    /* Down arrow */
+.down-arrow {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(8px); }
+  60% { transform: translateY(4px); }
+}
+
     /* Footer */
     footer {
       text-align: center;
@@ -174,6 +191,11 @@
       The purpose of this page is to display what I enjoy doing, creating projects for fun and for purpose. 
       Note: Not all completed projects listed, media not complete.
     </p>
+  </div>
+    
+<!-- Down arrow -->
+  <div class="down-arrow" onclick="scrollToProjects()">
+    &#x25BC; <!-- Unicode for a downwards triangle arrow -->
   </div>
 </div>
   
