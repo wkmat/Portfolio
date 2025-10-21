@@ -189,7 +189,10 @@
 </head>
 <body>
   <div class="top-bar">
-   <img src="MCELOGO3.PNG" alt="Matt Chesnut Logo" style="height: 42px; object-fit: contain;">
+   <!-- Logo as button -->
+  <img src="MCELOGO3.PNG" alt="Matt Chesnut Logo" 
+       style="height: 42px; object-fit: contain; cursor: pointer;"
+       onclick="scrollToTop()">
     <a href="Matt's Resume 9:24:25.pdf" target="_blank" class="resume-btn">Resume</a>
   </div>
 
@@ -387,6 +390,10 @@ window.addEventListener('scroll', () => {
   }
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // for mobile bounce
 });
+    
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
   </script>
 </body>
