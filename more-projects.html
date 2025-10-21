@@ -3,29 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>More Designs / Ongoing Projects</title>
-  <link rel="stylesheet" href="style.css"> <!-- optional if you move your CSS to external file -->
+  <title>Matt Chesnut Engineering</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #1a1a1a;
+      background: #1a1a1a; /* light matte black background */
       margin: 20px 40px 40px 40px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
       color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     }
+
+    p {
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
     .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 10px 40px;
-      background: transparent;
-      z-index: 999;
-      transition: top 0.3s;
-      box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  position: fixed;      /* Make it stick at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 40px;
+  background: transparent;  /* same as body background */
+  z-index: 999;
+  transition: top 0.3s; /* smooth slide effect */
+  box-sizing: border-box;
+}
+
+    .top-bar h1 {
+      margin: 0;
+      font-size: 28px;
     }
+
+    .about-me {
+      margin-top: 20px;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 16px;
+      color: #ddd;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .about-me-section {
+  margin-top: 140px; /* Adjust this value to move the section further down */
+  margin-bottom: 150px;
+}
+
+    /* Subtle divider between sections */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2); /* subtle white line */
+  margin: 40px auto; /* spacing above and below */
+  max-width: 2000px; /* line width */
+}
+
+
+    .project {
+      margin-bottom: 60px;
+    }
+
+    /* Media container for all images and videos */
+    .media-container {
+      width: 300px;           /* fixed width for all images/videos */
+      height: 169px;          /* 16:9 ratio */
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      margin-top: 15px;
+      cursor: pointer; /* for images */
+    }
+
+    .media-container img,
+    .media-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Flex row for all media */
+    .media-row {
+      display: flex;
+      flex-wrap: nowrap;       /* force side by side */
+      gap: 20px;
+      justify-content: center;
+      overflow-x: auto;        /* scroll if too wide */
+    }
+
+    /* Resume button */
     .resume-btn {
       display: inline-block;
       background: transparent;
@@ -38,7 +118,28 @@
       transition: background 0.3s;
       box-sizing: border-box;
     }
-    .resume-btn:hover { background: #555; }
+    .resume-btn:hover {
+      background: #555;
+    }
+
+    /* Down arrow */
+.down-arrow {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  margin-top: 80px;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(8px); }
+  60% { transform: translateY(4px); }
+}
+
+    /* Footer */
     footer {
       text-align: center;
       color: white;
@@ -46,49 +147,257 @@
       margin-top: 50px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
+
+    /* Responsive adjustments */
+    @media (max-width: 1000px) {
+      .media-container {
+        width: 45%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .media-container {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Modal for enlarged images */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.9);
+    }
+
+    .modal img {
+      display: block;
+      margin: auto;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
   </style>
 </head>
 <body>
   <div class="top-bar">
-    <img src="MCELOGO3.PNG" alt="Matt Chesnut Logo" style="height: 42px; object-fit: contain; cursor:pointer;" onclick="refreshPage()">
+   <!-- Logo as button -->
+  <img src="MCELOGO3.PNG" alt="Matt Chesnut Logo" style="height: 42px; object-fit: contain; cursor:pointer;" onclick="refreshPage()">
     <a href="Matt's Resume 9:24:25.pdf" target="_blank" class="resume-btn">Resume</a>
   </div>
 
-  <div style="margin-top: 140px; text-align:center;">
-    <h1>More Designs / Ongoing Projects</h1>
-    <p>Here you can showcase additional projects or ongoing designs.</p>
+  <!-- About Me Section -->
+  <div class="about-me-section">
+  <h1>About Me</h1>
+  <div class="about-me">
+    <p>
+      Hi! My name is Matt Chesnut. I'm a mechanical engineering student at the University of Maryland. 
+      The purpose of this page is to display what I enjoy doing, creating projects for fun and for purpose. 
+      Note: Not all completed projects listed, media not complete.
+    </p>
+  </div>
+    
+<!-- Down arrow -->
+  <div class="down-arrow" onclick="scrollToProjects()">
+    &#x25BC; <!-- Unicode for a downwards triangle arrow -->
+  </div>
+</div>
+  
+  <!-- Divider -->
+<hr class="section-divider">
 
-    <!-- Example projects layout -->
+  <h1>Technical Projects</h1>
+
+  <!-- Motor to Pump Assembly -->
+<div class="project">
+  <h2>Motor to Pump Assembly</h2>
+  
+  <!-- Top row of 2 images -->
+  <div class="media-row">
+    <div class="media-container"><img src="GearBox1.png" alt="GearBox1"></div>
+    <div class="media-container"><img src="GearBox2.png" alt="GearBox2"></div>
+  </div>
+  
+  <!-- Bottom row of 3 images -->
+  <div class="media-row">
+    <div class="media-container"><img src="GearBox3.png" alt="GearBox3"></div>
+    <div class="media-container"><img src="GearBox4.png" alt="GearBox4"></div>
+    <div class="media-container"><img src="GearBox5.png" alt="GearBox5"></div>
+  </div>
+  
+    <p style="text-align: center; margin-top: 20px;">
+      This assembly has 22 parts total (6296K11_Hydraulic Pump, 59845K11_Base Face-Mount AC Motor, 
+      GRU Case Bottom, GRU Case Top, Spur Gears, Drive Pin, Output Pin, Straight Pins, 
+      GRU to Pump Coupler, Motor to GRU Coupler, Motor Shaft to GRU Coupler GRU Side, 
+      Motor Shaft to GRU Coupler Motor Side, Motor to GRU Mounting Adapter, 
+      Pump to GRU Coupler GRU Side, Pump to GRU Coupler Pump Side, 
+      Pump to GRU Mounting Adapter, Shaft Key GRU Coupler, Machine Screw Hex Nut, 
+      Flat Washer Type A, Socket Head Cap Screw, Hex Bolt).  
+      The GRU (Gear Reduction Unit) is 14in x 3in x 5.5in and uses a 10:1 gear ratio 
+      for the pump to operate at a low RPM with high torque.
+    </p>
+  </div>
+
+  <!-- Impeller Turbine Assembly -->
+  <div class="project">
+    <h2>Impeller Turbine Assembly</h2>
     <div class="media-row">
-      <div class="media-container"><img src="Example1.png" alt="Example Project 1"></div>
-      <div class="media-container"><img src="Example2.png" alt="Example Project 2"></div>
-      <div class="media-container"><img src="Example3.png" alt="Example Project 3"></div>
+      <div class="media-container"><img src="impeller_parts.JPG" alt="Impeller parts"></div>
+      <div class="media-container">
+        <video controls poster="impeller_preview.png">
+          <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls poster="impeller_vid_preview.png">
+          <source src="impeller_vid.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px;">
+      Impeller + turbine design and 3D print.
+    </p>
+  </div>
+
+  <!-- Car-Mounted GoPro System -->
+<div class="project">
+  <h2>Car-Mounted GoPro System</h2>
+  
+  <!-- Top row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="GoproMount4.png" alt="GoPro Mount 4">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount5.png" alt="GoPro Mount 5">
+    </div>
+    <div class="media-container">
+      <img src="Gopromount6.png" alt="GoPro Mount 6">
     </div>
   </div>
+
+  <!-- Another Row -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="Gopromount7.png" alt="GoPro Mount 7">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount8.png" alt="GoPro Mount 8">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount9.png" alt="GoPro Mount 9">
+    </div>
+  </div>
+  
+  <!-- Bottom row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="GoproMount1.png" alt="GoPro Mount 1">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount2.png" alt="GoPro Mount 2">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount3.png" alt="GoPro Mount 3">
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Designed and fabricated a magnetic stable rear camera mount using SolidWorks, 3D Printing, and hand-machined 6061-T6 parts.
+  </p>
+</div>
+
+  <!-- PC Case Design -->
+  <div class="project">
+    <h2>PC Case Design</h2>
+    <div class="media-row">
+      <div class="media-container">
+        <video controls poster="pc_case_preview.png">
+          <source src="PC_Case.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls poster="3d_print_preview.png">
+          <source src="3D_Printedcase.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px;">
+      Magnetic mounted PC front cover plate assembly and 3D print.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 40px 0;">
+  <a href="more-projects.html" class="resume-btn">More Designs / Ongoing Projects</a>
+</div>
+
+    <!-- Divider -->
+<hr class="section-divider">
 
   <footer>
     © 2025 Matthew Chesnut | Portfolio
   </footer>
 
-  <script>
-    // Refresh logo
-    function refreshPage() {
-      window.location.reload();
-      window.scrollTo(0, 0);
-    }
+  <!-- Modal for enlarged images -->
+  <div id="imageModal" class="modal">
+    <img id="modalImg" src="">
+  </div>
 
-    // Optional: sticky top bar show/hide
-    let lastScrollTop = 0;
-    const topBar = document.querySelector('.top-bar');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-        topBar.style.top = '-80px';
-      } else {
-        topBar.style.top = '0';
-      }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+
+    // Toggle modal open/close on image click
+    document.querySelectorAll(".media-container img").forEach(img => {
+      img.addEventListener("click", () => {
+        if (modal.style.display === "block" && modalImg.src === img.src) {
+          modal.style.display = "none"; // close if already open on same image
+        } else {
+          modal.style.display = "block";
+          modalImg.src = img.src;
+        }
+      });
     });
+
+    // Close modal when clicking background
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal || e.target === modalImg) {
+        modal.style.display = "none";
+      }
+    });
+
+    let lastScrollTop = 0;
+const topBar = document.querySelector('.top-bar');
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollTop > lastScrollTop) {
+    // Scrolling down — hide top bar
+    topBar.style.top = '-80px'; // adjust if your bar is taller
+  } else {
+    // Scrolling up — show top bar
+    topBar.style.top = '0';
+  }
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // for mobile bounce
+});
+    
+function refreshPage() {
+  window.location.reload(); // refreshes the page
+  window.scrollTo(0, 0);   // ensures scroll is at top
+}
+
   </script>
 </body>
 </html>
