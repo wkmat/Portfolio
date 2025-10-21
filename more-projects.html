@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Designs / Ongoing Projects</title>
+  <link rel="stylesheet" href="style.css"> <!-- optional if you move your CSS to external file -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      margin: 20px 40px 40px 40px;
+      color: white;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 40px;
+      background: transparent;
+      z-index: 999;
+      transition: top 0.3s;
+      box-sizing: border-box;
+    }
+    .resume-btn {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      padding: 7px 15px;
+      border-radius: 1px;
+      border: 1px solid white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+      box-sizing: border-box;
+    }
+    .resume-btn:hover { background: #555; }
+    footer {
+      text-align: center;
+      color: white;
+      font-size: 14px;
+      margin-top: 50px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <img src="MCELOGO3.PNG" alt="Matt Chesnut Logo" style="height: 42px; object-fit: contain; cursor:pointer;" onclick="refreshPage()">
+    <a href="Matt's Resume 9:24:25.pdf" target="_blank" class="resume-btn">Resume</a>
+  </div>
+
+  <div style="margin-top: 140px; text-align:center;">
+    <h1>More Designs / Ongoing Projects</h1>
+    <p>Here you can showcase additional projects or ongoing designs.</p>
+
+    <!-- Example projects layout -->
+    <div class="media-row">
+      <div class="media-container"><img src="Example1.png" alt="Example Project 1"></div>
+      <div class="media-container"><img src="Example2.png" alt="Example Project 2"></div>
+      <div class="media-container"><img src="Example3.png" alt="Example Project 3"></div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Matthew Chesnut | Portfolio
+  </footer>
+
+  <script>
+    // Refresh logo
+    function refreshPage() {
+      window.location.reload();
+      window.scrollTo(0, 0);
+    }
+
+    // Optional: sticky top bar show/hide
+    let lastScrollTop = 0;
+    const topBar = document.querySelector('.top-bar');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        topBar.style.top = '-80px';
+      } else {
+        topBar.style.top = '0';
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  </script>
+</body>
+</html>
