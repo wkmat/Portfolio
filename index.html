@@ -25,12 +25,20 @@
     }
 
     .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      margin-top: 0;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+  position: fixed;      /* Make it stick at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 40px;
+  background: #1a1a1a;  /* same as body background */
+  z-index: 999;
+  transition: top 0.3s; /* smooth slide effect */
+}
 
     .top-bar h1 {
       margin: 0;
@@ -361,6 +369,22 @@
         modal.style.display = "none";
       }
     });
+
+    let lastScrollTop = 0;
+const topBar = document.querySelector('.top-bar');
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollTop > lastScrollTop) {
+    // Scrolling down — hide top bar
+    topBar.style.top = '-80px'; // adjust if your bar is taller
+  } else {
+    // Scrolling up — show top bar
+    topBar.style.top = '0';
+  }
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // for mobile bounce
+});
+
   </script>
 </body>
 </html>
