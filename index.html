@@ -555,12 +555,20 @@ function refreshPage() {
   });
 
 
-    function scrollToProjects() {
+  function scrollToProjects() {
   const section = document.getElementById("technical-projects");
   if (section) {
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Adjust this value to how much space you want above
+    const offset = 80; // pixels above the section
+    const topPos = section.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: topPos,
+      behavior: "smooth"
+    });
   }
 }
+
 
 
 
