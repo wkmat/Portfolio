@@ -543,6 +543,18 @@ function refreshPage() {
   window.scrollTo(0, 0);   // ensures scroll is at top
 }
 
+
+      // Lazy-load all images and videos
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".media-container img").forEach(img => {
+      img.setAttribute("loading", "lazy");
+    });
+    document.querySelectorAll(".media-container video").forEach(video => {
+      video.setAttribute("preload", "none");
+    });
+  });
+
+
   </script>
 </body>
 </html>
