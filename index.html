@@ -246,7 +246,7 @@ body {
   <!-- Divider -->
 <hr class="section-divider">
 
-  <h1>Technical Projects</h1>
+  <h1 id="technical-projects">Technical Projects</h1>
 
   <!-- Motor to Pump Assembly -->
 <div class="project">
@@ -553,6 +553,15 @@ function refreshPage() {
       video.setAttribute("preload", "none");
     });
   });
+
+
+    function scrollToProjects() {
+  const section = document.getElementById("technical-projects");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
 
 
   </script>
