@@ -306,7 +306,6 @@ body {
   .portfolio-hero {
     min-height: 90vh;
     padding: 115px 18px 60px;
-    transform: translateY(-100px);
   }
 
   .portfolio-description {
@@ -340,10 +339,15 @@ body {
 </head>
   
 <body>
-  <div class="top-bar">
+  <body id="top">
    <!-- Logo as button -->
-  <img src="MCELOGO3.PNG" alt="Matt Chesnut Logo" style="height: 42px; object-fit: contain; cursor:pointer;" onclick="refreshPage()">
-    <a href="Chesnut_Resume_7-29-26.pdf" target="_blank" class="resume-btn">Resume</a>
+  <a href="#top" class="logo-link" aria-label="Return to the top">
+  <img
+    src="MCELOGO3.PNG"
+    alt="Matt Chesnut Engineering"
+    style="height: 42px; object-fit: contain;"
+  >
+</a>
   </div>
 
 
