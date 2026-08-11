@@ -202,6 +202,125 @@ body {
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     }
+
+
+    html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+.portfolio-hero {
+  min-height: 100vh;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 120px 24px 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.portfolio-label {
+  margin: 0 0 14px;
+  color: #9db8ff;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.17em;
+  text-shadow: none;
+}
+
+.portfolio-hero h1 {
+  margin: 0 0 20px;
+  color: white;
+  font-size: clamp(46px, 8vw, 82px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.portfolio-hero h2 {
+  max-width: 800px;
+  margin: 0 0 24px;
+  color: #dddddd;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.portfolio-description {
+  max-width: 680px;
+  margin: 0;
+  color: #bdbdbd;
+  font-size: 18px;
+  line-height: 1.7;
+  text-shadow: none;
+}
+
+.portfolio-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.hero-button {
+  display: inline-block;
+  min-width: 165px;
+  padding: 12px 20px;
+  border: 1px solid white;
+  border-radius: 3px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+}
+
+.primary-button {
+  background: white;
+  color: #1a1a1a;
+}
+
+.primary-button:hover {
+  background: #dddddd;
+}
+
+.secondary-button {
+  background: transparent;
+  color: white;
+}
+
+.secondary-button:hover {
+  background: #444444;
+}
+
+@media (max-width: 600px) {
+  .portfolio-hero {
+    min-height: 90vh;
+    padding: 115px 18px 60px;
+  }
+
+  .portfolio-description {
+    font-size: 16px;
+  }
+
+  .portfolio-buttons {
+    width: 100%;
+  }
+
+  .hero-button {
+    width: 100%;
+  }
+}
+
+    
   </style>
 
   
@@ -225,23 +344,45 @@ body {
     <a href="Chesnut_Resume_7-29-26.pdf" target="_blank" class="resume-btn">Resume</a>
   </div>
 
+
+  
   <!-- About Me Section -->
-  <div class="about-me-section">
-  <h1>About Me</h1>
-  <div class="about-me">
-    <p>
-      Hi, I’m Matt Chesnut, a mechanical engineering student at the University of Maryland. 
-      This site showcases projects where I design, build, and experiment with mechanical systems, robotics, and engineering concepts. 
-      Some projects are ongoing, with additional documentation and media added over time.
-      In addition to the projects shown here, I designed and developed this website from scratch.
-    </p>
+<section class="portfolio-hero">
+  <p class="portfolio-label">MECHANICAL ENGINEERING PORTFOLIO</p>
+
+  <h1>Hi, I’m Matt Chesnut.</h1>
+
+  <h2>
+    I design and build mechanical systems, robotics,
+    and engineering prototypes.
+  </h2>
+
+  <p class="portfolio-description">
+    I’m a mechanical engineering student at the University of Maryland.
+    My work combines CAD, prototyping, fabrication, programming,
+    robotics, and mechanical testing.
+  </p>
+
+  <div class="portfolio-buttons">
+    <a href="#technical-projects" class="hero-button primary-button">
+      View My Projects
+    </a>
+
+    <a
+      href="Chesnut_Resume_7-29-26.pdf"
+      target="_blank"
+      class="hero-button secondary-button"
+    >
+      View Resume
+    </a>
   </div>
-    
-<!-- Down arrow -->
-  <div class="down-arrow" onclick="scrollToProjects()">
-    &#x25BC; <!-- Unicode for a downwards triangle arrow -->
-  </div>
-</div>
+</section>
+
+<hr class="section-divider">
+
+<h1 id="technical-projects">Technical Projects</h1>
+
+  
   
   <!-- Divider -->
 <hr class="section-divider">
