@@ -217,7 +217,7 @@ body {
 
 .portfolio-intro {
   position: relative;
-  top: -80px;
+  top: -40px;
   width: 100%;
   max-width: 850px;
   margin: 0 auto;
@@ -347,9 +347,25 @@ body {
       robotics, and mechanical testing.
     </p>
 
-    <a href="#technical-projects" class="portfolio-projects-button">
-      View My Projects
-    </a>
+    <a
+  href="#technical-projects"
+  class="portfolio-projects-button"
+  onclick="
+    event.preventDefault();
+    const projects = document.getElementById('technical-projects');
+    const position =
+      projects.getBoundingClientRect().top +
+      window.pageYOffset -
+      150;
+
+    window.scrollTo({
+      top: position,
+      behavior: 'smooth'
+    });
+  "
+>
+  View My Projects
+</a>
   </div>
 </section>
     
