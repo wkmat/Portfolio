@@ -14,7 +14,658 @@
 
 /* Hide scrollbar and track (Firefox) */
 body {
+  scrollbar-width: none;<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matt Chesnut Engineering</title>
+  <style>
+
+    /* Hide scrollbar and track (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Hide scrollbar and track (Firefox) */
+body {
   scrollbar-width: none;
+}
+
+/* Hide scrollbar and track (IE/old Edge) */
+body {
+  -ms-overflow-style: none;
+}
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a; /* light matte black background */
+      margin: 20px 40px 40px 40px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+
+    p {
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  position: fixed;      /* Make it stick at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 40px;
+  background: transparent;  /* same as body background */
+  z-index: 999;
+  transition: top 0.3s; /* smooth slide effect */
+  box-sizing: border-box;
+}
+
+    .top-bar h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .about-me {
+      margin-top: 20px;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 16px;
+      color: #ddd;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .about-me-section {
+  margin-top: 140px; /* Adjust this value to move the section further down */
+  margin-bottom: 300px;
+}
+
+    /* Subtle divider between sections */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2); /* subtle white line */
+  margin: 40px auto; /* spacing above and below */
+  max-width: 2000px; /* line width */
+}
+
+
+    .project {
+      margin-bottom: 60px;
+    }
+
+    /* Media container for all images and videos */
+    .media-container {
+      width: 300px;           /* fixed width for all images/videos */
+      height: 169px;          /* 16:9 ratio */
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      margin-top: 15px;
+      cursor: pointer; /* for images */
+    }
+
+    .media-container img,
+    .media-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Flex row for all media */
+    .media-row {
+      display: flex;
+      flex-wrap: nowrap;       /* force side by side */
+      gap: 20px;
+      justify-content: center;
+      overflow-x: auto;        /* scroll if too wide */
+    }
+
+    /* Resume button */
+    .resume-btn {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      padding: 7px 15px;
+      border-radius: 1px;
+      border: 1px solid white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+      box-sizing: border-box;
+    }
+    .resume-btn:hover {
+      background: #555;
+    }
+
+    /* Down arrow */
+.down-arrow {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  margin-top: 120px;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(8px); }
+  60% { transform: translateY(4px); }
+}
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: white;
+      font-size: 14px;
+      margin-top: 50px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1000px) {
+      .media-container {
+        width: 45%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .media-container {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Modal for enlarged images */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.9);
+    }
+
+    .modal img {
+      display: block;
+      margin: auto;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+  </style>
+
+  
+  <!-- Favicon for browsers -->
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+
+  <!-- Favicon for Apple devices -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
+  <!-- Optional: fallback .ico for old browsers -->
+  <link rel="shortcut icon" href="favicon.ico">
+
+  
+</head>
+  
+<body>
+  <div class="top-bar">
+   <!-- Logo as button -->
+  <img src="MCELOGO3.PNG" alt="Matt Chesnut Logo" style="height: 42px; object-fit: contain; cursor:pointer;" onclick="refreshPage()">
+    <a href="Chesnut_Resume_7-29-26.pdf" target="_blank" class="resume-btn">Resume</a>
+  </div>
+
+  <!-- About Me Section -->
+  <div class="about-me-section">
+  <h1>About Me</h1>
+  <div class="about-me">
+    <p>
+      Hi, I’m Matt Chesnut, a mechanical engineering student at the University of Maryland. 
+      This site showcases projects where I design, build, and experiment with mechanical systems, robotics, and engineering concepts. 
+      Some projects are ongoing, with additional documentation and media added over time.
+      In addition to the projects shown here, I designed and developed this website from scratch.
+    </p>
+  </div>
+    
+<!-- Down arrow -->
+  <div class="down-arrow" onclick="scrollToProjects()">
+    &#x25BC; <!-- Unicode for a downwards triangle arrow -->
+  </div>
+</div>
+  
+  <!-- Divider -->
+<hr class="section-divider">
+
+  <h1 id="technical-projects">Technical Projects</h1>
+
+
+
+<!-- Mechanical Arm Stage 3-->
+<div class="project">
+  <h2>Stage 3: Mechanical Arm</h2>
+  
+  <!-- Top row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="ArmMedia25.webp" alt="Arm Media 25">
+    </div>
+    <div class="media-container">
+        <video controls poster="ArmMedia28.webp">
+          <source src="ArmMedia26.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    <div class="media-container">
+      <img src="ArmMedia27.webp" alt="Arm Media 27">
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Designed new hardware to include endstop switches for homing. Major software overhaul, NEW python application with features including, fast homing, accurate 3D live visual, 
+    forward & inverse kinematics for different move cases, & safety limits to prevent clashing.
+  </p>
+</div>
+  
+  
+
+<!-- Mechanical Arm Stage 2-->
+<div class="project">
+  <h2>Stage 2: Mechanical Arm</h2>
+  
+  <!-- Top row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="Stage2Arm3.webp" alt="Arm Media 1">
+    </div>
+    <div class="media-container">
+      <img src="Stage2Arm1.webp" alt="Arm Media 2">
+    </div>
+    <div class="media-container">
+      <img src="Stage2Arm2.webp" alt="Arm Media 3">
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Redesigned the main arm + housing to reduce all wiggle/backlash of the arm and gears. New housing cap uses 6 cut screws so that 3 hold the outer gears + mount to the frame 
+    & the other 3 are only to mount the arm + planetary gear box to the frame. This reduces pressure & friction on the fixed gears and output shaft gear as well as allowing a 
+    tighter more secure assembly, resulting in smoother & more precise operation. I also altered the couplers to be shorter for a reduced profile & redesigned the bottom mount to be 
+    more robust.
+  </p>
+</div>
+
+ <p style="text-align: center; margin-top: 10px;">
+    I also spent time better developing the software for the arm. Moving to python and open loop serial communication it allows for live control.
+  </p>
+</div>
+
+
+  
+<!-- Mechanical Arm -->
+<div class="project">
+  <h2>Stage 1: Mechanical Arm</h2>
+  
+  <!-- Top row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="ArmMedia1.webp" alt="Arm Media 1">
+    </div>
+    <div class="media-container">
+      <img src="ArmMedia2.webp" alt="Arm Media 2">
+    </div>
+    <div class="media-container">
+      <img src="ArmMedia3.webp" alt="Arm Media 3">
+    </div>
+  </div>
+
+  <div class="media-row">
+    <div class="media-container">
+      <img src="ArmMedia4.webp" alt="Arm Media 4">
+    </div>
+    <div class="media-container">
+      <img src="ArmMedia5.webp" alt="Arm Media 5">
+    </div>
+    <div class="media-container">
+      <img src="ArmMedia18.webp" alt="Arm Media 18">
+    </div>
+  </div>
+
+  <div class="media-row">
+    <div class="media-container">
+      <img src="ArmMedia14.webp" alt="Arm Media 14">
+    </div>
+    <div class="media-container">
+      <img src="ArmMedia13.webp" alt="Arm Media 13">
+    </div>
+    <div class="media-container">
+        <video controls poster="ArmMedia12.webp">
+          <source src="ArmMedia10.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Designed and fabricated a 3-axis mechanical arm using NEMA 17 stepper motors, a Creality V4.2.2 controller board, a 24V power supply, 3D-printed components, and M3 hardware. 
+    The arm incorporates a planetary gearbox (PGB) with a gear ratio of 0.247x input speed, producing an approximately 4x torque multiplication, 
+    providing sufficient torque for lifting tasks. The arm is programmed to use Marlin firmware. (In Progress)
+  </p>
+</div>
+
+  
+
+ <!-- Impeller Turbine Assembly -->
+  <div class="project">
+    <h2>Impeller Turbine Assembly</h2>
+    <div class="media-row">
+      <div class="media-container"><img src="impeller_parts.webp" alt="Impeller parts"></div>
+      <div class="media-container">
+        <video controls poster="impeller_preview.webp">
+          <source src="Impeller Turbine Assembly Simulation.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls poster="impeller_vid_preview.webp">
+          <source src="impeller_vid.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px;">
+      Designed and fabricated Impeller + turbine. 3D printed assembly, using metric hardware & bearings.
+    </p>
+  </div>
+  
+  
+  
+  <!-- Car-Mounted GoPro System -->
+<div class="project">
+  <h2>Car-Mounted GoPro System</h2>
+  
+  <!-- Top row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="GoproMount4.webp" alt="GoPro Mount 4">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount5.webp" alt="GoPro Mount 5">
+    </div>
+    <div class="media-container">
+      <img src="Gopromount6.webp" alt="GoPro Mount 6">
+    </div>
+  </div>
+
+  <!-- Another Row -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="Gopromount7.webp" alt="GoPro Mount 7">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount8.webp" alt="GoPro Mount 8">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount9.webp" alt="GoPro Mount 9">
+    </div>
+  </div>
+  
+  <!-- Bottom row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="GoproMount1.webp" alt="GoPro Mount 1">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount2.webp" alt="GoPro Mount 2">
+    </div>
+    <div class="media-container">
+      <img src="GoproMount3.webp" alt="GoPro Mount 3">
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Designed and fabricated a magnetic stable rear camera mount. 3D printed adjustable gopro mount & base magnet mount, & hand-machined 6061-T6 camera arm. 
+    3 magnets installed, each with vertical hold force of 30lbs. 
+  </p>
+</div>
+
+
+ <!-- Game Console -->
+<div class="project">
+  <h2>Handheld Game Console</h2>
+  
+  <!-- Top row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="Game1.webp" alt="Game Console Media 1">
+    </div>
+    <div class="media-container">
+      <img src="Game2.webp" alt="Game Console Media 2">
+    </div>
+    <div class="media-container">
+        <video controls poster="Game4.webp">
+          <source src="Game3.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Designed and fabricated a portable handheld game console using an arduino, LCD screen, soldered mechanical switches, and cut acrylic. Programmed in C++.
+  </p>
+</div>
+
+
+  <!-- Motor to Pump Assembly -->
+<div class="project">
+  <h2>Motor to Pump Assembly</h2>
+  
+  <!-- Top row of 2 images -->
+  <div class="media-row">
+    <div class="media-container"><img src="GearBox1.webp" alt="GearBox1"></div>
+    <div class="media-container"><img src="GearBox2.webp" alt="GearBox2"></div>
+  </div>
+  
+  <!-- Bottom row of 3 images -->
+  <div class="media-row">
+    <div class="media-container"><img src="GearBox3.webp" alt="GearBox3"></div>
+    <div class="media-container"><img src="GearBox4.webp" alt="GearBox4"></div>
+    <div class="media-container"><img src="GearBox5.webp" alt="GearBox5"></div>
+  </div>
+  
+    <p style="text-align: center; margin-top: 20px;">
+      This assembly has 22 parts total (6296K11_Hydraulic Pump, 59845K11_Base Face-Mount AC Motor, 
+      GRU Case Bottom, GRU Case Top, Spur Gears, Drive Pin, Output Pin, Straight Pins, 
+      GRU to Pump Coupler, Motor to GRU Coupler, Motor Shaft to GRU Coupler GRU Side, 
+      Motor Shaft to GRU Coupler Motor Side, Motor to GRU Mounting Adapter, 
+      Pump to GRU Coupler GRU Side, Pump to GRU Coupler Pump Side, 
+      Pump to GRU Mounting Adapter, Shaft Key GRU Coupler, Machine Screw Hex Nut, 
+      Flat Washer Type A, Socket Head Cap Screw, Hex Bolt).  
+      The GRU (Gear Reduction Unit) is 14in x 3in x 5.5in and uses a 10:1 gear ratio 
+      for the pump to operate at a low RPM with high torque.
+    </p>
+  </div>
+  
+  
+ <!-- Pegboard -->
+<div class="project">
+  <h2>Custom Pegboard</h2>
+  
+  <!-- Top row of 3 images -->
+  <div class="media-row">
+    <div class="media-container">
+      <img src="PegboardMedia2.webp" alt="Pegboard Media 2">
+    </div>
+    <div class="media-container">
+        <video controls poster="PegboardMedia5.webp">
+          <source src="PegboardMedia1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+  </div>
+
+  <div class="media-row">
+    <div class="media-container">
+      <img src="PegboardMedia3.webp" alt="Pegboard Media 3">
+    </div>
+    <div class="media-container">
+      <img src="PegboardMedia4.webp" alt="Pegboard Media 4">
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Designed and fabricated a custom pegboard from engineered MDF using epilog fusion laser cutter & custom 3d printed wall mounts for use with #8 screws. (client work)
+  </p>
+</div>
+
+  
+  <!-- PC Case Design -->
+  <div class="project">
+    <h2>PC Case Design</h2>
+    <div class="media-row">
+      <div class="media-container">
+        <video controls poster="pc_case_preview.webp">
+          <source src="PC_Case.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <video controls poster="3d_print_preview.webp">
+          <source src="3D_Printedcase.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px;">
+      Designed and fabricated a magnetically mounted pc front cover plate. 3D printed cover plate, magnets installed into the mounts for easy attachment & removal.
+    </p>
+  </div>
+
+
+  
+  <div style="text-align: center; margin: 40px 0;">
+  <a href="more-projects.html" class="resume-btn">More Designs / Ongoing Projects</a>
+</div>
+
+<!-- Contact Section -->
+<div style="text-align: center; margin: 40px 0;">
+  <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+    <a href="mailto:matchesnut@gmail.com" class="resume-btn">Email</a>
+    <a href="https://linkedin.com/in/mattchesnut" target="_blank" class="resume-btn">LinkedIn</a>
+  </div>
+</div>
+  
+    <!-- Divider -->
+<hr class="section-divider">
+
+  <footer>
+    © 2026 MCE | Matt Chesnut Engineering
+  </footer>
+
+  <!-- Modal for enlarged images -->
+  <div id="imageModal" class="modal">
+    <img id="modalImg" src="">
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+
+    // Toggle modal open/close on image click
+    document.querySelectorAll(".media-container img").forEach(img => {
+      img.addEventListener("click", () => {
+        if (modal.style.display === "block" && modalImg.src === img.src) {
+          modal.style.display = "none"; // close if already open on same image
+        } else {
+          modal.style.display = "block";
+          modalImg.src = img.src;
+        }
+      });
+    });
+
+    // Close modal when clicking background
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal || e.target === modalImg) {
+        modal.style.display = "none";
+      }
+    });
+
+    let lastScrollTop = 0;
+const topBar = document.querySelector('.top-bar');
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollTop > lastScrollTop) {
+    // Scrolling down — hide top bar
+    topBar.style.top = '-80px'; // adjust if your bar is taller
+  } else {
+    // Scrolling up — show top bar
+    topBar.style.top = '0';
+  }
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // for mobile bounce
+});
+    
+function refreshPage() {
+  window.location.reload(); // refreshes the page
+  window.scrollTo(0, 0);   // ensures scroll is at top
+}
+
+
+      // Lazy-load all images and videos
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".media-container img").forEach(img => {
+      img.setAttribute("loading", "lazy");
+    });
+    document.querySelectorAll(".media-container video").forEach(video => {
+      video.setAttribute("preload", "none");
+    });
+  });
+
+
+  function scrollToProjects() {
+  const section = document.getElementById("technical-projects");
+  if (section) {
+    // Adjust this value to how much space you want above
+    const offset = 60; // pixels above the section
+    const topPos = section.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: topPos,
+      behavior: "smooth"
+    });
+  }
+}
+
+
+
+
+  </script>
+</body>
+</html>
 }
 
 /* Hide scrollbar and track (IE/old Edge) */
