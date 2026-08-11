@@ -281,6 +281,27 @@ body {
   }
 }
 
+
+.portfolio-projects-button {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 11px 20px;
+  background: white;
+  color: #1a1a1a;
+  border: 1px solid white;
+  border-radius: 3px;
+  font-weight: bold;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.portfolio-projects-button:hover {
+  background: #dddddd;
+  transform: translateY(-2px);
+}
+    
     
   </style>
 
@@ -306,7 +327,7 @@ body {
   </div>
 
 
-  <!-- Website Introduction -->
+<!-- Website Introduction -->
 <section class="portfolio-hero">
   <div class="portfolio-intro">
     <p class="portfolio-label">
@@ -325,15 +346,14 @@ body {
       My work combines CAD, prototyping, fabrication, programming,
       robotics, and mechanical testing.
     </p>
+
+    <a href="#technical-projects" class="portfolio-projects-button">
+      View My Projects
+    </a>
   </div>
 </section>
-
     
-<!-- Down arrow -->
-  <div class="down-arrow" onclick="scrollToProjects()">
-    &#x25BC; <!-- Unicode for a downwards triangle arrow -->
-  </div>
-</div>
+
   
   <!-- Divider -->
 <hr class="section-divider">
