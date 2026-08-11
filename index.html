@@ -202,6 +202,86 @@ body {
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     }
+
+/* New centered introduction */
+
+.portfolio-hero {
+  min-height: 100vh;
+  padding: 110px 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.portfolio-intro {
+  position: relative;
+  top: -100px;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.portfolio-label {
+  margin: 0 0 14px;
+  color: #9db8ff;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.17em;
+  text-shadow: none;
+}
+
+.portfolio-hero h1 {
+  margin: 0 0 20px;
+  color: white;
+  font-size: clamp(38px, 6vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.portfolio-hero h2 {
+  max-width: 800px;
+  margin: 0 auto 24px;
+  color: #dddddd;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.portfolio-description {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #bdbdbd;
+  font-size: 18px;
+  line-height: 1.7;
+  text-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .portfolio-hero {
+    min-height: 90vh;
+    padding: 100px 18px 60px;
+  }
+
+  .portfolio-intro {
+    top: -35px;
+  }
+
+  .portfolio-hero h1 {
+    font-size: 38px;
+  }
+
+  .portfolio-hero h2 {
+    font-size: 24px;
+  }
+
+  .portfolio-description {
+    font-size: 16px;
+  }
+}
+
+    
   </style>
 
   
@@ -225,17 +305,29 @@ body {
     <a href="Chesnut_Resume_7-29-26.pdf" target="_blank" class="resume-btn">Resume</a>
   </div>
 
-  <!-- About Me Section -->
-  <div class="about-me-section">
-  <h1>About Me</h1>
-  <div class="about-me">
-    <p>
-      Hi, I’m Matt Chesnut, a mechanical engineering student at the University of Maryland. 
-      This site showcases projects where I design, build, and experiment with mechanical systems, robotics, and engineering concepts. 
-      Some projects are ongoing, with additional documentation and media added over time.
-      In addition to the projects shown here, I designed and developed this website from scratch.
+
+  <!-- Website Introduction -->
+<section class="portfolio-hero">
+  <div class="portfolio-intro">
+    <p class="portfolio-label">
+      MECHANICAL ENGINEERING PORTFOLIO
+    </p>
+
+    <h1>Hi, I’m Matt Chesnut.</h1>
+
+    <h2>
+      I design and build mechanical systems, robotics,
+      and engineering prototypes.
+    </h2>
+
+    <p class="portfolio-description">
+      I’m a mechanical engineering student at the University of Maryland.
+      My work combines CAD, prototyping, fabrication, programming,
+      robotics, and mechanical testing.
     </p>
   </div>
+</section>
+
     
 <!-- Down arrow -->
   <div class="down-arrow" onclick="scrollToProjects()">
